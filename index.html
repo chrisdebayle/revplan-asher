@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asher Health — First-Year Revenue Plan 2026</title>
+
+<!-- ============================================================
+     ASHER HEALTH — FIRST-YEAR REVENUE PLAN
+     Sales Director, Nationwide | Interview Leave-Behind
+     Hybrid theme: dark navy sidebar, light clinical slides
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@700&family=Inter:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     CSS TOKENS
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Asher Health navy palette */
+    --navy:            #144a8a;
+    --navy-deep:       #0e3360;
+    --navy-darker:     #0a2647;
+
+    /* surfaces */
+    --bg-dark:         #f4f7fb;   /* primary slide background (light) */
+    --bg-card:         #ffffff;   /* card / panel background */
+    --bg-sidebar:      #0c2a4d;   /* sidebar — darker than bg-dark */
+
+    /* accent system */
+    --accent:          #144a8a;   /* primary accent */
+    --accent-bright:   #2f7ad1;   /* brighter accent for sidebar contrast */
+    --accent-dim:      rgba(20,74,138,0.12);
+
+    /* text */
+    --text-primary:    #11243a;   /* near-ink */
+    --text-secondary:  #4d6480;   /* mid-gray-blue */
+    --text-muted:      #92a4ba;   /* muted labels */
+
+    /* sidebar text (on dark) */
+    --side-text:       #e8eef6;
+    --side-muted:      #6f88a6;
+
+    /* lines */
+    --border:          rgba(20,40,60,0.08);
+    --border-accent:   rgba(20,74,138,0.22);
+
+    /* fonts */
+    --font-display:    'Tomorrow', sans-serif;
+    --font-body:       'Inter', sans-serif;
+
+    --sidebar-w:       236px;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    overflow: hidden;
+  }
+
+  /* ============================================================
+     APP SHELL
+     ============================================================ */
+  .app { display: flex; height: 100vh; width: 100vw; }
+
+  /* ============================================================
+     SIDEBAR
+     ============================================================ */
+  .sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-accent);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .brand {
+    padding: 26px 22px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .brand-mark {
+    width: 30px; height: 30px; flex-shrink: 0;
+    border-radius: 7px;
+    background: var(--accent-bright);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .brand-mark svg { width: 15px; height: 15px; }
+  .brand-word {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--side-text);
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
+  .brand-word b { font-weight: 500; letter-spacing: 0.06em; }
+  .brand-word span { font-weight: 300; opacity: 0.78; }
+  .brand-sub {
+    font-family: var(--font-display);
+    font-size: 8.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    margin-top: 4px;
+  }
+
+  .chapter-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .chapter-nav::-webkit-scrollbar { width: 2px; }
+  .chapter-nav::-webkit-scrollbar-thumb { background: var(--side-muted); }
+
+  .chap-btn {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    padding: 9px 11px;
+    border: none;
+    border-left: 2px solid transparent;
+    background: transparent;
+    color: var(--side-muted);
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.3;
+  }
+  .chap-btn .cn {
+    font-family: var(--font-display);
+    font-size: 9px;
+    color: var(--side-muted);
+    transition: color 0.18s ease;
+  }
+  .chap-btn:hover {
+    color: var(--side-text);
+    background: rgba(255,255,255,0.04);
+  }
+  .chap-btn.active {
+    color: var(--accent-bright);
+    border-left-color: var(--accent-bright);
+    background: rgba(47,122,209,0.12);
+  }
+  .chap-btn.active .cn { color: var(--accent-bright); }
+
+  .side-footer {
+    padding: 16px 22px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    font-size: 9.5px;
+    color: var(--side-muted);
+    line-height: 1.6;
+  }
+  .side-footer a { color: var(--accent-bright); text-decoration: none; }
+
+  /* ============================================================
+     SLIDE AREA
+     ============================================================ */
+  .stage {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 78% 12%, rgba(47,122,209,0.06), transparent 42%),
+      var(--bg-dark);
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 80px;
+    opacity: 0;
+    transform: translateX(32px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+
+  .slide-inner {
+    width: 100%;
+    max-width: 1060px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ============================================================
+     COMPONENT LIBRARY
+     ============================================================ */
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+
+  h2.slide-h {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1.04;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+  .lead {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: clamp(16px, 1.5vw, 21px);
+    line-height: 1.5;
+    color: var(--text-secondary);
+    max-width: 760px;
+  }
+
+  /* hero number */
+  .hero-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(76px, 10.5vw, 140px);
+    line-height: 0.9;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .hero-label {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(15px, 1.5vw, 20px);
+    color: var(--text-secondary);
+    margin-top: 18px;
+    max-width: 620px;
+  }
+
+  /* big statement */
+  .big-statement {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 44px);
+    line-height: 1.18;
+    text-align: center;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .big-statement em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  /* stat row / cards */
+  .stat-row {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .stat-card {
+    flex: 1;
+    min-width: 180px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 6px 20px rgba(16,40,70,0.05);
+  }
+  .stat-card .sn {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(34px, 4vw, 52px);
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-card .sl {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 12px;
+    line-height: 1.45;
+  }
+
+  /* side by side */
+  .side-by-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 8px;
+  }
+  .side-col {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 26px;
+    box-shadow: 0 6px 20px rgba(16,40,70,0.05);
+  }
+  .side-col.ac { border-left: 3px solid var(--accent); }
+  .side-col .col-h {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .side-col p {
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+  .side-col p + p { margin-top: 10px; }
+
+  /* three col */
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .comp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 22px;
+    box-shadow: 0 6px 20px rgba(16,40,70,0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  .comp-card.feature {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    border: none;
+  }
+  .comp-card .cc-tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    border-radius: 7px;
+    padding: 6px 10px;
+    align-self: flex-start;
+    margin-bottom: 16px;
+  }
+  .comp-card.feature .cc-tag { background: rgba(255,255,255,0.18); }
+  .comp-card .cc-h {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .comp-card.feature .cc-h { color: #fff; }
+  .comp-card .cc-b {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .comp-card.feature .cc-b { color: rgba(255,255,255,0.82); }
+  .comp-card .cc-foot {
+    font-family: var(--font-display);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: auto;
+    padding-top: 18px;
+  }
+
+  /* flow row */
+  .flow-row {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .flow-box {
+    flex: 1;
+    min-width: 150px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 18px;
+    box-shadow: 0 6px 20px rgba(16,40,70,0.05);
+  }
+  .flow-box .fb-num {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .flow-box .fb-h {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-primary);
+    line-height: 1.18;
+    margin-bottom: 8px;
+  }
+  .flow-box .fb-b {
+    font-size: 12.5px;
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--text-secondary);
+  }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--accent);
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  /* minimal list */
+  .minimal-list { list-style: none; margin-top: 14px; }
+  .minimal-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: clamp(15px, 1.5vw, 19px);
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .minimal-list .li-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent);
+    flex-shrink: 0;
+    padding-top: 3px;
+  }
+  .minimal-list b { color: var(--text-primary); font-weight: 500; }
+
+  /* slide table */
+  .slide-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 14.5px;
+  }
+  .slide-table thead th {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: left;
+    padding: 10px 16px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .slide-table tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+  .slide-table tbody td:first-child {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  .slide-table .em { color: var(--accent); font-weight: 700; font-family: var(--font-display); }
+
+  /* ============================================================
+     INFOGRAPHIC COMPONENTS
+     ============================================================ */
+
+  /* scenario tiers — Floor / Plan / Stretch */
+  .scenario-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    align-items: stretch;
+  }
+  .scn-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--border-accent);
+    border-radius: 14px;
+    padding: 24px 24px 26px;
+    box-shadow: 0 6px 20px rgba(16,40,70,0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  .scn-card.feature {
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
+    border: none;
+    box-shadow: 0 18px 40px rgba(14,51,96,0.28);
+  }
+  .scn-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  .scn-tier {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .scn-card.feature .scn-tier { color: rgba(255,255,255,0.72); }
+  .scn-flag {
+    font-family: var(--font-display);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(255,255,255,0.20);
+    border-radius: 6px;
+    padding: 4px 9px;
+  }
+  .scn-metric { display: flex; flex-direction: column; }
+  .scn-metric + .scn-metric {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+  }
+  .scn-card.feature .scn-metric + .scn-metric { border-top-color: rgba(255,255,255,0.14); }
+  .scn-metric .m-val {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(24px, 2.4vw, 32px);
+    line-height: 1;
+    color: var(--accent);
+  }
+  .scn-card.feature .m-val { color: #fff; }
+  .scn-metric .m-lbl {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-top: 7px;
+    line-height: 1.35;
+  }
+  .scn-card.feature .m-lbl { color: rgba(255,255,255,0.7); }
+
+  /* horizontal bar comparison (capacity + retention) */
+  .bar-list { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .bar-item {
+    display: grid;
+    grid-template-columns: 232px 1fr;
+    align-items: center;
+    gap: 22px;
+  }
+  .bar-label { font-size: 13.5px; color: var(--text-primary); font-weight: 500; line-height: 1.3; }
+  .bar-label .bl-sub { display: block; font-size: 11px; color: var(--text-muted); font-weight: 400; margin-top: 3px; }
+  .bar-track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .bar-fill {
+    height: 34px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 13px;
+    min-width: 58px;
+    background: var(--accent);
+  }
+  .bar-fill .bf-val {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12.5px;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .bar-tag {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  .bar-tag b { font-family: var(--font-display); color: var(--accent); font-weight: 700; }
+
+  /* headcount ramp timeline */
+  .ramp {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    align-items: end;
+    margin-top: 32px;
+    position: relative;
+  }
+  .ramp::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 92px;
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+  .ramp-col { display: flex; flex-direction: column; align-items: stretch; position: relative; z-index: 1; }
+  .ramp-bar {
+    border-radius: 9px 9px 0 0;
+    background: linear-gradient(180deg, var(--accent-bright) 0%, var(--navy) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 14px 8px 12px;
+    color: #fff;
+  }
+  .ramp-col:last-child .ramp-bar {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-darker) 100%);
+    box-shadow: 0 14px 30px rgba(14,51,96,0.24);
+  }
+  .ramp-bar .rb-total {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1;
+  }
+  .ramp-bar .rb-split {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.78);
+    margin-top: 8px;
+  }
+  .ramp-meta { padding-top: 16px; text-align: center; }
+  .ramp-meta .rm-month {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-radius: 5px;
+    padding: 3px 8px;
+    margin-bottom: 9px;
+  }
+  .ramp-meta .rm-phase {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+  .ramp-meta .rm-hires { font-size: 11.5px; color: var(--text-secondary); margin-top: 5px; line-height: 1.35; }
+
+  /* severity-coded risk cards */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 28px;
+  }
+  .risk-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--sev);
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 6px 20px rgba(16,40,70,0.05);
+  }
+  .risk-card.crit { --sev: #c0392b; }
+  .risk-card.high { --sev: #c8852c; }
+  .risk-card.mod  { --sev: var(--accent); }
+  .risk-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  .risk-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15.5px;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+  .risk-sev {
+    font-family: var(--font-display);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sev);
+    background: color-mix(in srgb, var(--sev) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--sev) 30%, transparent);
+    border-radius: 5px;
+    padding: 4px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .risk-mit { font-size: 13px; font-weight: 300; line-height: 1.5; color: var(--text-secondary); }
+  .risk-mit b { color: var(--accent); font-weight: 500; }
+
+  /* divider slide */
+  .divider-inner { position: relative; z-index: 2; width: 100%; }
+  .ghost-num {
+    position: absolute;
+    top: 50%; left: 0;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(110px, 16vw, 200px);
+    color: rgba(20,74,138,0.05);
+    z-index: 1;
+    line-height: 0.8;
+    user-select: none;
+    pointer-events: none;
+  }
+  .divider-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(34px, 5vw, 64px);
+    color: var(--text-primary);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .divider-rule {
+    width: 64px; height: 3px;
+    background: var(--accent);
+    margin: 22px 0 20px;
+  }
+  .divider-sub {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(15px, 1.6vw, 20px);
+    color: var(--text-secondary);
+    max-width: 640px;
+    line-height: 1.5;
+  }
+
+  .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .pill {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--border-accent);
+    background: var(--accent-dim);
+    border-radius: 100px;
+    padding: 8px 14px;
+  }
+
+  .note {
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--accent);
+    margin-top: 24px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--accent);
+    background: rgba(30, 64, 130, 0.06);
+    border-radius: 0 6px 6px 0;
+    line-height: 1.6;
+  }
+
+  /* title slide */
+  .title-slide .t-eyebrow {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 26px;
+  }
+  .title-slide .t-word {
+    font-family: var(--font-body);
+    font-size: clamp(40px, 6vw, 76px);
+    color: var(--text-primary);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .title-slide .t-word b { font-weight: 600; letter-spacing: 0.02em; }
+  .title-slide .t-word span { font-weight: 300; color: var(--text-secondary); }
+  .title-slide h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(26px, 3.2vw, 44px);
+    color: var(--accent);
+    margin-top: 18px;
+    line-height: 1.05;
+  }
+  .title-slide .t-meta {
+    margin-top: 34px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .title-slide .t-meta b { color: var(--text-primary); font-weight: 500; }
+  .title-slide .t-meta-row { display: flex; align-items: baseline; gap: 8px; }
+  .title-slide .t-recipients { display: flex; flex-direction: column; gap: 2px; }
+  .title-slide .t-recipients span { line-height: 1.5; }
+
+  /* close slide */
+  .close-slide .close-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(13px, 1.3vw, 16px);
+    color: var(--text-secondary);
+    max-width: 540px;
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+  .close-slide .close-statement {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+  .close-slide .close-statement em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .close-rule {
+    width: 72px; height: 3px;
+    background: var(--accent);
+    margin: 30px 0 24px;
+  }
+  .close-contact .cc-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(18px, 1.8vw, 24px);
+    color: var(--text-primary);
+  }
+  .close-contact .cc-role {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  .close-contact .cc-lines {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .close-contact .cc-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-accent);
+    padding-bottom: 2px;
+    transition: border-color 0.18s ease;
+  }
+  .close-contact .cc-link:hover { border-bottom-color: var(--accent); }
+  .close-contact .cc-dot { color: var(--text-muted); }
+
+  /* ============================================================
+     CHROME
+     ============================================================ */
+  .progress {
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+    z-index: 5;
+    transition: width 0.35s ease;
+  }
+  .counter {
+    position: absolute;
+    top: 26px; right: 34px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+    z-index: 5;
+  }
+  .counter b { color: var(--accent); font-weight: 500; }
+  .nav-hint {
+    position: absolute;
+    bottom: 22px; right: 34px;
+    font-size: 11px;
+    color: var(--text-muted);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-hint kbd {
+    font-family: var(--font-body);
+    font-size: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    border-radius: 4px;
+    padding: 2px 7px;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 880px) {
+    .sidebar { display: none; }
+    .slide { padding: 48px 36px; }
+    .side-by-side, .three-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============================================================
+       SIDEBAR
+       ============================================================ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="logo-asher-health.jpg" alt="ASHER health" style="width:100%;height:100%;object-fit:cover;border-radius:6px;"/>
+      </div>
+      <div>
+        <div class="brand-word"><b>ASHER</b> <span>health</span></div>
+        <div class="brand-sub">Revenue Plan · Y1</div>
+      </div>
+    </div>
+    <nav class="chapter-nav" id="chapterNav"></nav>
+    <div class="side-footer">
+      Sales Director · Nationwide<br>
+      Interview Deliverable · 2026<br>
+      <a id="contactLink" href="#">contact</a>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       STAGE / SLIDES
+       ============================================================ -->
+  <main class="stage" id="stage">
+
+    <!-- 0 · TITLE -->
+    <section class="slide title-slide" data-chapter="0">
+      <div class="slide-inner">
+        <div class="t-eyebrow">First-Year Revenue Plan · 2026</div>
+        <div class="t-word"><b>ASHER</b> <span>health</span></div>
+        <h1>Capacity execution against a hot, time-boxed window.</h1>
+        <div class="t-meta">
+          <div class="t-meta-row"><b>Prepared for:</b>
+            <span class="t-recipients">
+              <span>Josh Ponton</span>
+              <span>Trevor Briggs</span>
+            </span>
+          </div>
+          <div class="t-meta-row"><b>Prepared by:</b> Chris Debayle</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CH 1 · THE SITUATION ============ -->
+    <section class="slide divider-slide" data-chapter="1">
+      <div class="ghost-num">01</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">The Situation</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">A compliant, turnkey medical weight-loss program sold to non-medical wellness operators.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="1">
+      <div class="slide-inner">
+        <div class="section-label">The Buyer</div>
+        <h2 class="slide-h">One operator.<br>One signature.</h2>
+        <div class="stat-row">
+          <div class="stat-card"><div class="sn">1</div><div class="sl">Decision-maker — the SMB owner-operator</div></div>
+          <div class="stat-card"><div class="sn">CC</div><div class="sl">Credit-card close, direct procurement</div></div>
+          <div class="stat-card"><div class="sn">14–45</div><div class="sl">Day sales cycle, end to end</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="1">
+      <div class="slide-inner">
+        <div class="section-label">What's Missing</div>
+        <h2 class="slide-h">The inbound is healthy.<br>The conversion isn't built.</h2>
+        <ul class="minimal-list">
+          <li><span class="li-num">01</span><span>No <b>disciplined demo→close</b> conversion of existing inbound</span></li>
+          <li><span class="li-num">02</span><span>No <b>outbound engine</b> — none, today</span></li>
+          <li><span class="li-num">03</span><span>No <b>sales force</b> to run either motion</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CH 2 · THE UNLOCK ============ -->
+    <section class="slide divider-slide" data-chapter="2">
+      <div class="ghost-num">02</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">The Strategic Unlock</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Timing. A regulatory shift is orphaning operators from their pharmacy source — right now.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="2">
+      <div class="slide-inner" style="align-items:center;text-align:center;">
+        <div class="hero-num">Apr 30</div>
+        <div class="hero-label">FDA proposes permanently barring 503B facilities from compounding semaglutide, tirzepatide &amp; liraglutide. Comment window closes June 29–30, 2026.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="2">
+      <div class="slide-inner" style="align-items:center;">
+        <div class="big-statement">A wave of wellness operators is being <em>orphaned from their pharmacy source</em> — the downstream of 50+ FDA warning letters and multiple platform shutdowns.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="2">
+      <div class="slide-inner">
+        <div class="section-label">The Soft Landing</div>
+        <h2 class="slide-h">Asher is the<br>compliant catch.</h2>
+        <div class="pill-row">
+          <span class="pill">50-State Prescriber Network</span>
+          <span class="pill">503A Personalized Pathway</span>
+          <span class="pill">LegitScript · HIPAA</span>
+          <span class="pill">Peptide Menu</span>
+        </div>
+        <div class="note">The single hottest outbound trigger of the year — and my read is that it isn't yet being worked systematically. Week-one to confirm and capture.</div>
+      </div>
+    </section>
+
+    <!-- ============ CH 3 · THE THESIS ============ -->
+    <section class="slide divider-slide" data-chapter="3">
+      <div class="ghost-num">03</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">The Thesis</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Not a moonshot. Capacity execution against a hot, time-boxed displacement window.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="3">
+      <div class="slide-inner">
+        <div class="section-label">Top 3 Initiatives</div>
+        <h2 class="slide-h">Convert. Build. Hire.</h2>
+        <div class="three-col">
+          <div class="comp-card">
+            <span class="cc-tag">0–30d</span>
+            <div class="cc-h">Instrument &amp; convert inbound</div>
+            <div class="cc-b">Speed-to-lead, routing SLA, demo→close playbook. No new headcount — the fastest revenue in the plan.</div>
+          </div>
+          <div class="comp-card">
+            <span class="cc-tag">30–90d</span>
+            <div class="cc-h">Build the outbound engine</div>
+            <div class="cc-b">ICP-scored lists, multi-channel cadence, built around the orphaned-partner trigger.</div>
+          </div>
+          <div class="comp-card feature">
+            <span class="cc-tag">Phased</span>
+            <div class="cc-h">Ramp the greenfield force</div>
+            <div class="cc-b">7 closers + 5 SDRs from zero, front-loaded with proven SMB operators.</div>
+            <div class="cc-foot">Built from zero</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="3">
+      <div class="slide-inner">
+        <div class="section-label">Year-1 Target · Derived, Not Assumed</div>
+        <h2 class="slide-h">The number.</h2>
+        <div class="scenario-row">
+          <div class="scn-card">
+            <div class="scn-head"><span class="scn-tier">Floor</span></div>
+            <div class="scn-metric"><span class="m-val">~340</span><span class="m-lbl">Gross new activations (logos)</span></div>
+            <div class="scn-metric"><span class="m-val">~$2.6M</span><span class="m-lbl">Exit ARR run-rate (net of churn)</span></div>
+            <div class="scn-metric"><span class="m-val">~$1.7M</span><span class="m-lbl">In-year recognized revenue</span></div>
+          </div>
+          <div class="scn-card feature">
+            <div class="scn-head"><span class="scn-tier">Plan</span><span class="scn-flag">Target</span></div>
+            <div class="scn-metric"><span class="m-val">~425</span><span class="m-lbl">Gross new activations (logos)</span></div>
+            <div class="scn-metric"><span class="m-val">~$3.2M</span><span class="m-lbl">Exit ARR run-rate (net of churn)</span></div>
+            <div class="scn-metric"><span class="m-val">~$2.2M</span><span class="m-lbl">In-year recognized revenue</span></div>
+          </div>
+          <div class="scn-card">
+            <div class="scn-head"><span class="scn-tier">Stretch</span></div>
+            <div class="scn-metric"><span class="m-val">~515</span><span class="m-lbl">Gross new activations (logos)</span></div>
+            <div class="scn-metric"><span class="m-val">~$3.9M</span><span class="m-lbl">Exit ARR run-rate (net of churn)</span></div>
+            <div class="scn-metric"><span class="m-val">~$2.6M</span><span class="m-lbl">In-year recognized revenue</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CH 4 · MARKET & PMF ============ -->
+    <section class="slide divider-slide" data-chapter="4">
+      <div class="ghost-num">04</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">Market &amp; PMF</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Where positioning strength aligns with customer fit — and where it must evolve.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="4">
+      <div class="slide-inner">
+        <div class="section-label">Fit vs. Friction</div>
+        <h2 class="slide-h">The moat moved.</h2>
+        <div class="side-by-side">
+          <div class="side-col ac">
+            <div class="col-h">Where fit is strongest</div>
+            <p>The operator already owns a trusted, recurring client relationship — and watches those clients drive across town for GLP-1s.</p>
+            <p>Asher converts that leakage into high-margin recurring revenue in 14–48 hours, with zero clinical build.</p>
+          </div>
+          <div class="side-col">
+            <div class="col-h">Where it must evolve</div>
+            <p>The early pitch leaned on the price arbitrage of cheap compounded semaglutide. That moat is eroding from two directions.</p>
+            <p><b style="color:var(--accent)">Regulatory:</b> 503B mass-compounding is closing. <b style="color:var(--accent)">Price:</b> branded DTC has collapsed toward the compounded range.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="4">
+      <div class="slide-inner" style="align-items:center;">
+        <div class="big-statement">The durable pitch is <em>compliance + done-for-you infrastructure + the client relationship</em> — not the lowest semaglutide price.</div>
+        <div class="note" style="text-align:center;">A positioning lever the Sales Director owns — not a product problem to wait on.</div>
+      </div>
+    </section>
+
+    <!-- ============ CH 5 · ICP PROFILES ============ -->
+    <section class="slide divider-slide" data-chapter="5">
+      <div class="ghost-num">05</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">Three ICP Profiles</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Calibrated to the SMB column. Outreach reference cards — each ends with the trigger stack and the angle.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="5">
+      <div class="slide-inner" style="align-items:center;">
+        <div class="section-label" style="text-align:center;">Cross-ICP Master Trigger · Work This First</div>
+        <div class="big-statement">"Recently lost their <em>compounding / pharmacy source.</em>"</div>
+        <div class="note" style="text-align:center;">Highest-intent, most time-perishable signal in the market. Stack with any second critical signal — and the account is a day-one call regardless of tier.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="5">
+      <div class="slide-inner">
+        <div class="section-label">ICP 1 · Tier 1 — Fastest Close</div>
+        <h2 class="slide-h">Med Spas &amp; Aesthetic Clinics</h2>
+        <div class="lead">Medically literate, existing injectable patients, shortest education curve. Highest willingness to retail at $400–600/mo.</div>
+        <div class="side-by-side" style="margin-top:26px;">
+          <div class="side-col">
+            <div class="col-h">Trigger Stack</div>
+            <p>Advertising semaglutide / weight loss · lost compounding source · new location · hiring injectors.</p>
+          </div>
+          <div class="side-col ac">
+            <div class="col-h">Outbound Angle</div>
+            <p><i>"Keep your weight-loss revenue compliant after the compounding crackdown — independent 50-state prescribers plus a personalized 503A pathway, live in 48 hours."</i></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="5">
+      <div class="slide-inner">
+        <div class="section-label">ICP 2 · Tier 1–2 — Volume Play</div>
+        <h2 class="slide-h">Gyms &amp; Boutique Fitness</h2>
+        <div class="lead">Largest latent demand, but a real education gap. Close rate lifts dramatically with peer revenue proof.</div>
+        <div class="side-by-side" style="margin-top:26px;">
+          <div class="side-col">
+            <div class="col-h">Trigger Stack</div>
+            <p>Members asking about GLP-1 · owner posting transformation content · adding body-comp scans · franchise piloting.</p>
+          </div>
+          <div class="side-col ac">
+            <div class="col-h">Outbound Angle</div>
+            <p><i>"Add a $10–40K/month recurring line to the member base you already have — no clinic, no license, all clinical and compliance handled."</i></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="5">
+      <div class="slide-inner">
+        <div class="section-label">ICP 3 · Tier 1–2 — Most Resilient</div>
+        <h2 class="slide-h">Coaches &amp; Functional Practices</h2>
+        <div class="lead">Already running peptides / hormones — easy cross-sell, and the ICP least exposed to a GLP-1 compounding clamp-down.</div>
+        <div class="side-by-side" style="margin-top:26px;">
+          <div class="side-col">
+            <div class="col-h">Trigger Stack</div>
+            <p>Already offering peptides / hormones · lost compounding source · advertising weight loss · certification-seeking.</p>
+          </div>
+          <div class="side-col ac">
+            <div class="col-h">Outbound Angle</div>
+            <p><i>"Compliant peptide + GLP-1 fulfillment that survives the FDA crackdown — diversify beyond commoditized semaglutide."</i></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="5">
+      <div class="slide-inner">
+        <div class="section-label">Retention-Weighted Prioritization</div>
+        <h2 class="slide-h">Not all logos are equal.</h2>
+        <div class="bar-list">
+          <div class="bar-item">
+            <div class="bar-label">DPC / concierge + functional<span class="bl-sub">ICP-3</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:47%;background:var(--navy-darker);"><span class="bf-val">~10–20%</span></div>
+              <span class="bar-tag"><b>Anchor</b></span>
+            </div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">Hormone / TRT clinics<span class="bl-sub">ICP-3</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:70%;background:var(--navy);"><span class="bf-val">~20–25%</span></div>
+              <span class="bar-tag"><b>Core</b></span>
+            </div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">Med spas / aesthetic<span class="bl-sub">ICP-1</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:70%;background:var(--navy);"><span class="bf-val">~20–25%</span></div>
+              <span class="bar-tag"><b>Core</b></span>
+            </div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">Boutique fitness / PT<span class="bl-sub">ICP-2</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:86%;background:var(--accent-bright);"><span class="bf-val">~25–30%</span></div>
+              <span class="bar-tag">Volume</span>
+            </div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">Transactional / telehealth-style<span class="bl-sub">All tiers</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:100%;background:var(--text-muted);"><span class="bf-val">~30%+</span></div>
+              <span class="bar-tag">Opportunistic</span>
+            </div>
+          </div>
+        </div>
+        <div class="note">Bars show monthly churn — shorter is stickier. Lead with ICP-1 for speed; weight the standing pipeline toward ICP-3 Anchor/Core for durable ARR.</div>
+      </div>
+    </section>
+
+    <!-- ============ CH 6 · REVENUE MODEL ============ -->
+    <section class="slide divider-slide" data-chapter="6">
+      <div class="ghost-num">06</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">Revenue Model</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Target derived from capacity. Every assumption exposed for the room to pressure-test.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="6">
+      <div class="slide-inner">
+        <div class="section-label">Per-Partner Economics · Asher's Revenue</div>
+        <h2 class="slide-h">~$14,400 ARR<br>at steady state.</h2>
+        <div class="stat-row">
+          <div class="stat-card"><div class="sn">~$2K</div><div class="sl">Activation fee — one-time booking</div></div>
+          <div class="stat-card"><div class="sn">~$297</div><div class="sl">Subscription / mo → $3,564 / yr recurring</div></div>
+          <div class="stat-card"><div class="sn">~$75</div><div class="sl">Usage margin / active patient / mo <i>(validate w/ Finance)</i></div></div>
+        </div>
+        <div class="note">Usage margin per patient is the single swing variable. The headline is anchored on activated logos, with ARR derived.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="6">
+      <div class="slide-inner">
+        <div class="section-label">Capacity Model · Built From Zero</div>
+        <h2 class="slide-h">~10 partners /<br>closer / month.</h2>
+        <div class="lead">~40 qualified demos × ~25% demo→activation. Floor/stretch flex the close rate 20% / 30%. Phased hire plan → ~43 productive closer-months in Year 1.</div>
+        <div class="bar-list">
+          <div class="bar-item">
+            <div class="bar-label">Floor<span class="bl-sub">20% close rate</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:67%;background:var(--text-muted);"><span class="bf-val">8 / mo</span></div>
+              <span class="bar-tag">→ <b>~340</b> gross activations</span>
+            </div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">Plan<span class="bl-sub">25% close rate</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:83%;background:linear-gradient(90deg,var(--accent),var(--accent-bright));"><span class="bf-val">10 / mo</span></div>
+              <span class="bar-tag">→ <b>~425</b> gross activations</span>
+            </div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">Stretch<span class="bl-sub">30% close rate</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:100%;background:var(--navy-deep);"><span class="bf-val">12 / mo</span></div>
+              <span class="bar-tag">→ <b>~515</b> gross activations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="6">
+      <div class="slide-inner">
+        <div class="section-label">Gross Activations → Net ARR Bridge</div>
+        <h2 class="slide-h">A three-step waterfall.</h2>
+        <div class="flow-row">
+          <div class="flow-box">
+            <div class="fb-num">Step 01</div>
+            <div class="fb-h">~425 logos</div>
+            <div class="fb-b">Gross activations — the metric the sales org is credited on.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">Step 02</div>
+            <div class="fb-h">~$9,500 / partner</div>
+            <div class="fb-b">Exit ARR per surviving partner → ~$4.0M gross book before churn.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">Step 03</div>
+            <div class="fb-h">~340 net-active</div>
+            <div class="fb-b">~80% realization — book is back-loaded, most partners too new to churn.</div>
+          </div>
+        </div>
+        <div class="note">Exit net ARR run-rate ≈ 340 net-active × ~$9,500 ≈ ~$3.2M.</div>
+      </div>
+    </section>
+
+    <!-- ============ CH 7 · GTM BUILD ============ -->
+    <section class="slide divider-slide" data-chapter="7">
+      <div class="ghost-num">07</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">GTM Build</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Org, lead engines, capacity — phased across the year.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="7">
+      <div class="slide-inner">
+        <div class="section-label">Sales Org · Greenfield, Phased</div>
+        <h2 class="slide-h">2 → 12 in four waves.</h2>
+        <div class="ramp">
+          <div class="ramp-col">
+            <div class="ramp-bar" style="min-height:74px;"><span class="rb-total">3</span><span class="rb-split">2C / 1S</span></div>
+            <div class="ramp-meta">
+              <span class="rm-month">M1</span>
+              <div class="rm-phase">Foundation</div>
+              <div class="rm-hires">+2 closers · 1 SDR</div>
+            </div>
+          </div>
+          <div class="ramp-col">
+            <div class="ramp-bar" style="min-height:142px;"><span class="rb-total">7</span><span class="rb-split">4C / 3S</span></div>
+            <div class="ramp-meta">
+              <span class="rm-month">M4</span>
+              <div class="rm-phase">Outbound stand-up</div>
+              <div class="rm-hires">+2 closers · 2 SDRs</div>
+            </div>
+          </div>
+          <div class="ramp-col">
+            <div class="ramp-bar" style="min-height:196px;"><span class="rb-total">10</span><span class="rb-split">6C / 4S</span></div>
+            <div class="ramp-meta">
+              <span class="rm-month">M7</span>
+              <div class="rm-phase">Scale</div>
+              <div class="rm-hires">+2 closers · 1 SDR</div>
+            </div>
+          </div>
+          <div class="ramp-col">
+            <div class="ramp-bar" style="min-height:236px;"><span class="rb-total">12</span><span class="rb-split">7C / 5S</span></div>
+            <div class="ramp-meta">
+              <span class="rm-month">M10</span>
+              <div class="rm-phase">Optimize</div>
+              <div class="rm-hires">+1 closer · 1 SDR</div>
+            </div>
+          </div>
+        </div>
+        <div class="note">Director runs player-coach in the foundation phase, then shifts to pure leadership by M4.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="7">
+      <div class="slide-inner">
+        <div class="section-label">Inbound Engine · Optimize, Don't Rebuild</div>
+        <h2 class="slide-h">Conversion, not<br>lead-gen.</h2>
+        <ul class="minimal-list">
+          <li><span class="li-num">01</span><span><b>Speed-to-lead + routing SLA</b> — first touch in minutes, round-robin with ownership</span></li>
+          <li><span class="li-num">02</span><span><b>Demo show-rate</b> — confirmation sequence + pre-demo qualification</span></li>
+          <li><span class="li-num">03</span><span><b>Demo→close discipline</b> — where SMB inbound revenue actually leaks</span></li>
+          <li><span class="li-num">04</span><span><b>Trial→paid + time-to-first-enrollment</b> — hand off with a target, not just a logo</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="7">
+      <div class="slide-inner">
+        <div class="section-label">Outbound Engine · Build From Zero</div>
+        <h2 class="slide-h">The sourcing squeeze.</h2>
+        <div class="flow-row">
+          <div class="flow-box">
+            <div class="fb-num">Lists</div>
+            <div class="fb-h">Origami / Claude + Apify</div>
+            <div class="fb-b">Two parallel build paths — selected live on the workflow. Apify scrapes med spas, gyms &amp; clinics from Google Maps; the AI layer scores &amp; enriches against the ICP Datapoint Framework.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">Trigger</div>
+            <div class="fb-h">Orphaned-partner first</div>
+            <div class="fb-b">Then new-location and active-weight-loss-advertising stacks.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">Cadence</div>
+            <div class="fb-h">Call · Email · IG DM</div>
+            <div class="fb-b">DOS Extended on calls; The Signal Sequence on email. Buyers live on Instagram.</div>
+          </div>
+        </div>
+        <div class="note">Open on their sourcing risk, close on the Readiness Assessment.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="7">
+      <div class="slide-inner">
+        <div class="section-label">Channel &amp; Expansion Vectors</div>
+        <h2 class="slide-h">Logo leverage<br>&amp; durable lines.</h2>
+        <div class="three-col">
+          <div class="comp-card">
+            <span class="cc-tag">Channel</span>
+            <div class="cc-h">One signature, many locations</div>
+            <div class="cc-b">Franchise &amp; multi-location groups; med-spa groups; consultants as referral partners.</div>
+          </div>
+          <div class="comp-card">
+            <span class="cc-tag">Conferences</span>
+            <div class="cc-h">Premium segments only</div>
+            <div class="cc-b">A4M, LongevityFest, AMMG concentrate high-ACV buyers. Pilot one mid-year — trade-off flagged.</div>
+          </div>
+          <div class="comp-card feature">
+            <span class="cc-tag">Expand</span>
+            <div class="cc-h">Peptide / hormone cross-sell</div>
+            <div class="cc-b">Land on GLP-1, expand into the menu least exposed to the compounding clamp-down.</div>
+            <div class="cc-foot">Regulatory-resilient</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CH 8 · RISKS ============ -->
+    <section class="slide divider-slide" data-chapter="8">
+      <div class="ghost-num">08</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">Risks &amp; Mitigations</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Every headwind named, severity-rated, and answered.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="8">
+      <div class="slide-inner">
+        <div class="section-label">Critical Risks</div>
+        <h2 class="slide-h">Named &amp; answered.</h2>
+        <div class="risk-grid">
+          <div class="risk-card crit">
+            <div class="risk-head"><div class="risk-name">Regulatory / supply contraction</div><span class="risk-sev">Critical</span></div>
+            <div class="risk-mit">Position on <b>compliance + personalization</b>; diversify toward peptides.</div>
+          </div>
+          <div class="risk-card high">
+            <div class="risk-head"><div class="risk-name">Branded-DTC price compression</div><span class="risk-sev">High</span></div>
+            <div class="risk-mit">Sell the <b>relationship + full-service wrap</b>; qualify for sticky books.</div>
+          </div>
+          <div class="risk-card high">
+            <div class="risk-head"><div class="risk-name">Greenfield ramp slippage</div><span class="risk-sev">High</span></div>
+            <div class="risk-mit">Front-load <b>proven SMB closers</b>; ride inbound while outbound stands up.</div>
+          </div>
+          <div class="risk-card mod">
+            <div class="risk-head"><div class="risk-name">Activation ≠ success</div><span class="risk-sev">Moderate</span></div>
+            <div class="risk-mit">Engaged-client-base floor as a <b>hard deal gate</b>; track churn_rate_by_icp.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CH 9 · EXECUTION ============ -->
+    <section class="slide divider-slide" data-chapter="9">
+      <div class="ghost-num">09</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">Prioritized Execution</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Execution-first. Sequenced so you never scale an un-measured close.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="9">
+      <div class="slide-inner">
+        <div class="section-label">The Sequence</div>
+        <h2 class="slide-h">Six moves.</h2>
+        <ul class="minimal-list">
+          <li><span class="li-num">01</span><span><b>Instrument + convert inbound</b> (0–30d) — funnel baseline, SLA, demo→close playbook</span></li>
+          <li><span class="li-num">02</span><span><b>Hire Wave 1, codify the close</b> (0–60d) — lift close rate before adding complexity</span></li>
+          <li><span class="li-num">03</span><span><b>Stand up outbound</b> (30–90d) — ICP-1 + orphaned-partner trigger</span></li>
+          <li><span class="li-num">04</span><span><b>Scale team, go multi-channel</b> (60–120d) — add ICP-2/3, IG into cadence</span></li>
+          <li><span class="li-num">05</span><span><b>Channel + multi-location leverage</b> (Q2–Q3) — franchise &amp; referral partners</span></li>
+          <li><span class="li-num">06</span><span><b>Expansion within base</b> (ongoing) — peptide cross-sell, regulatory-resilient ARR</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CH 10 · CLOSE ============ -->
+    <section class="slide close-slide" data-chapter="10">
+      <div class="slide-inner">
+        <div class="close-statement">Let's make the<br>difference <em>together.</em></div>
+        <div class="close-rule"></div>
+        <div class="close-contact">
+          <div class="cc-name">Chris Debayle</div>
+          <div class="cc-role">Sales Director · Nationwide</div>
+          <div class="cc-lines">
+            <a id="closeEmail" href="#" class="cc-link">email</a>
+            <span class="cc-dot">·</span>
+            <a href="https://linkedin.com/in/chrisdebayle" target="_blank" rel="noopener" class="cc-link">linkedin.com/in/chrisdebayle</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHROME -->
+    <div class="counter" id="counter"></div>
+    <div class="nav-hint"><kbd>←</kbd><kbd>→</kbd><span>navigate</span></div>
+    <div class="progress" id="progress"></div>
+  </main>
+</div>
+
+<script>
+  /* ============================================================
+     NAVIGATION — chapters[] is the single source of truth
+     ============================================================ */
+  const chapters = [
+    "Title",
+    "The Situation",
+    "The Strategic Unlock",
+    "The Thesis",
+    "Market & PMF",
+    "Three ICP Profiles",
+    "Revenue Model",
+    "GTM Build",
+    "Risks & Mitigations",
+    "Prioritized Execution",
+    "The Close"
+  ];
+
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  const stage = document.getElementById('stage');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  const nav = document.getElementById('chapterNav');
+
+  let current = 0;
+  let animating = false;
+
+  /* build sidebar dynamically from chapters[] — skip the Title chapter (0) */
+  const chapFirstSlide = {};
+  slides.forEach((s, i) => {
+    const c = parseInt(s.dataset.chapter, 10);
+    if (chapFirstSlide[c] === undefined) chapFirstSlide[c] = i;
+  });
+
+  chapters.forEach((title, idx) => {
+    if (idx === 0) return; // don't list the title slide as a nav chapter
+    const btn = document.createElement('button');
+    btn.className = 'chap-btn';
+    btn.dataset.chap = idx;
+    btn.innerHTML = '<span class="cn">' + String(idx).padStart(2,'0') + '</span><span>' + title + '</span>';
+    btn.addEventListener('click', () => {
+      const target = chapFirstSlide[idx];
+      if (target !== undefined) goTo(target);
+    });
+    nav.appendChild(btn);
+  });
+
+  function updateUI() {
+    counter.innerHTML = '<b>' + String(current+1).padStart(2,'0') + '</b> / ' + String(total).padStart(2,'0');
+    progress.style.width = (((current+1)/total)*100) + '%';
+    const activeChap = parseInt(slides[current].dataset.chapter, 10);
+    document.querySelectorAll('.chap-btn').forEach(b => {
+      b.classList.toggle('active', parseInt(b.dataset.chap,10) === activeChap);
+    });
+  }
+
+  function goTo(index) {
+    if (animating || index === current || index < 0 || index >= total) return;
+    animating = true;
+    const forward = index > current;
+    const cur = slides[current];
+    cur.classList.remove('active');
+    if (forward) cur.classList.add('exit-left');
+
+    setTimeout(() => {
+      cur.classList.remove('exit-left');
+      current = index;
+      slides[current].classList.add('active');
+      updateUI();
+      setTimeout(() => { animating = false; }, 360);
+    }, 80);
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  /* keyboard */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  });
+
+  /* touch */
+  let touchStartX = 0;
+  stage.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+  stage.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 50) { diff < 0 ? next() : prev(); }
+  });
+
+  /* obfuscated contact — assembled at runtime */
+  const u = 'me', d = 'chrisdebayle' + '.' + 'com';
+  const mailto = 'mai' + 'lto:' + u + '@' + d;
+  document.getElementById('contactLink').href = mailto;
+  const ce = document.getElementById('closeEmail');
+  if (ce) { ce.href = mailto; ce.textContent = u + '@' + d; }
+
+  /* init */
+  slides[0].classList.add('active');
+  updateUI();
+</script>
+</body>
+</html>
