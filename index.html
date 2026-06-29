@@ -36,6 +36,9 @@
     --accent:          #144a8a;   /* primary accent */
     --accent-bright:   #2f7ad1;   /* brighter accent for sidebar contrast */
     --accent-dim:      rgba(20,74,138,0.12);
+    --accent-2:        #0e8f9c;   /* clinical teal — analogous secondary accent (growth/vitality) */
+    --accent-2-deep:   #0c5f6e;   /* deep teal — for hero-card gradient ends */
+    --spotlight:       #c8852c;   /* warm amber — rare highlight (already used on risk slide) */
 
     /* text */
     --text-primary:    #11243a;   /* near-ink */
@@ -294,6 +297,9 @@
     padding: 28px 24px;
     box-shadow: 0 6px 20px rgba(16,40,70,0.05);
   }
+  /* growth variant — teal top-border + teal figures on the economics/growth slides */
+  .stat-card.grow { border-top-color: var(--accent-2); }
+  .stat-card.grow .sn { color: var(--accent-2); }
   .stat-card .sn {
     font-family: var(--font-display);
     font-weight: 700;
@@ -387,7 +393,7 @@
     flex-direction: column;
   }
   .comp-card.feature {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    background: linear-gradient(160deg, var(--navy) 0%, var(--accent-2-deep) 100%);
     border: none;
   }
   .comp-card .cc-tag {
@@ -448,7 +454,7 @@
     box-shadow: 0 6px 20px rgba(16,40,70,0.05);
   }
   .flow-box.feature {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    background: linear-gradient(160deg, var(--navy) 0%, var(--accent-2-deep) 100%);
     border: none;
   }
   .flow-box .fb-num {
@@ -529,7 +535,7 @@
     flex-direction: column;
   }
   .scn-card.feature {
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
+    background: linear-gradient(165deg, var(--navy) 0%, var(--accent-2-deep) 100%);
     border: none;
     box-shadow: 0 18px 40px rgba(14,51,96,0.28);
   }
@@ -557,6 +563,12 @@
     background: rgba(255,255,255,0.20);
     border-radius: 6px;
     padding: 4px 9px;
+  }
+  /* spotlight: the featured scenario's flag gets the warm amber pop */
+  .scn-card.feature .scn-flag {
+    color: #11243a;
+    background: var(--spotlight);
+    font-weight: 700;
   }
   .scn-metric { display: flex; flex-direction: column; }
   .scn-metric + .scn-metric {
@@ -775,7 +787,7 @@
   }
   .divider-rule {
     width: 64px; height: 3px;
-    background: var(--accent);
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
     margin: 22px 0 20px;
   }
   .divider-sub {
@@ -919,7 +931,7 @@
     position: absolute;
     bottom: 0; left: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
     z-index: 5;
     transition: width 0.35s ease;
   }
@@ -1044,17 +1056,29 @@
         <svg viewBox="0 0 600 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trust flywheel: trust, activation, retention, referral, fuel" style="width:100%;max-width:520px;height:auto;display:block;margin:14px auto 0;">
           <defs>
             <marker id="fwHead" markerWidth="9" markerHeight="9" refX="5" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 Z" fill="#144a8a"></path>
+              <path d="M0,0 L6,3 L0,6 Z" fill="#0e8f9c"></path>
             </marker>
             <linearGradient id="fwNode" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#2f7ad1"></stop>
               <stop offset="1" stop-color="#144a8a"></stop>
             </linearGradient>
+            <linearGradient id="fwNodeMid" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1f9ab0"></stop>
+              <stop offset="1" stop-color="#146a86"></stop>
+            </linearGradient>
+            <linearGradient id="fwNodeTeal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#19b0bf"></stop>
+              <stop offset="1" stop-color="#0c6f7a"></stop>
+            </linearGradient>
+            <linearGradient id="fwArc" gradientUnits="userSpaceOnUse" x1="466" y1="181" x2="134" y2="181">
+              <stop offset="0" stop-color="#2f7ad1"></stop>
+              <stop offset="1" stop-color="#0e8f9c"></stop>
+            </linearGradient>
           </defs>
           <!-- value-creation arc 1 -> 5 (clockwise through 2,3,4) -->
-          <path d="M 300 60 A 175 175 0 1 1 134 181" fill="none" stroke="#2f7ad1" stroke-width="2.5" opacity="0.85"></path>
+          <path d="M 300 60 A 175 175 0 1 1 134 181" fill="none" stroke="url(#fwArc)" stroke-width="2.5" opacity="0.9"></path>
           <!-- fuel returns to acquisition (5 -> 1) -->
-          <path d="M 134 181 A 175 175 0 0 1 300 60" fill="none" stroke="#144a8a" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#fwHead)"></path>
+          <path d="M 134 181 A 175 175 0 0 1 300 60" fill="none" stroke="#0e8f9c" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#fwHead)"></path>
           <g font-family="'Tomorrow', sans-serif" text-anchor="middle">
             <circle cx="300" cy="60" r="30" fill="url(#fwNode)"></circle>
             <text x="300" y="67" fill="#fff" font-size="20" font-weight="700">1</text>
@@ -1064,20 +1088,20 @@
             <text x="466" y="188" fill="#fff" font-size="20" font-weight="700">2</text>
             <text x="466" y="233" fill="#11243a" font-size="15" font-weight="700">Activation</text>
 
-            <circle cx="403" cy="377" r="30" fill="url(#fwNode)"></circle>
+            <circle cx="403" cy="377" r="30" fill="url(#fwNodeMid)"></circle>
             <text x="403" y="384" fill="#fff" font-size="20" font-weight="700">3</text>
             <text x="403" y="429" fill="#11243a" font-size="15" font-weight="700">Retention</text>
 
-            <circle cx="197" cy="377" r="30" fill="url(#fwNode)"></circle>
+            <circle cx="197" cy="377" r="30" fill="url(#fwNodeTeal)"></circle>
             <text x="197" y="384" fill="#fff" font-size="20" font-weight="700">4</text>
             <text x="197" y="429" fill="#11243a" font-size="15" font-weight="700">Referral</text>
 
-            <circle cx="134" cy="181" r="30" fill="url(#fwNode)"></circle>
+            <circle cx="134" cy="181" r="30" fill="url(#fwNodeTeal)"></circle>
             <text x="134" y="188" fill="#fff" font-size="20" font-weight="700">5</text>
             <text x="134" y="233" fill="#11243a" font-size="15" font-weight="700">Fuel</text>
 
             <text x="300" y="227" fill="#92a4ba" font-size="11" letter-spacing="2.5" font-weight="700">THE LOOP FUELS</text>
-            <text x="300" y="251" fill="#144a8a" font-size="17" font-weight="700">Inbound + Outbound</text>
+            <text x="300" y="251" fill="#0e8f9c" font-size="17" font-weight="700">Inbound + Outbound</text>
           </g>
         </svg>
         <div class="fw-cap">Every turn lowers acquisition cost and raises retention. The engine builds on itself.</div>
@@ -1113,6 +1137,19 @@
           <span class="pill">LegitScript · HIPAA</span>
         </div>
         <div class="note">Polarize on the enemy — DTC telehealth and medication-without-care. Stay deeply empathetic to the operator.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="2">
+      <div class="slide-inner">
+        <div class="section-label">Where I'd Plant the Flag</div>
+        <h2 class="slide-h">Four bets I'd make.</h2>
+        <ul class="minimal-list">
+          <li><span class="li-num">01</span><span><b>GLP-1 is the door, not the house.</b> Compounding is narrowing — we win on brand, trust, and a full service line, not cheap meds.</span></li>
+          <li><span class="li-num">02</span><span><b>Hormones &amp; peptides are the hedge.</b> As GLP-1 tightens, HRT / TRT / peptides are where retention compounds.</span></li>
+          <li><span class="li-num">03</span><span><b>Compliance is the moat.</b> As the crackdown clears out the cowboys, the most compliant operator-layer wins.</span></li>
+          <li><span class="li-num">04</span><span><b>Win the land-grab now.</b> The category is forming — take operators before it consolidates around someone else.</span></li>
+        </ul>
       </div>
     </section>
 
@@ -1482,9 +1519,9 @@
         <div class="section-label">Per-Partner Economics</div>
         <h2 class="slide-h">$497/mo.<br>~$4.8M already.</h2>
         <div class="stat-row">
-          <div class="stat-card"><div class="sn">$497</div><div class="sl">Per month, month-to-month → $5,964 / yr recurring per active partner</div></div>
-          <div class="stat-card"><div class="sn">800+</div><div class="sl">Active partners today — the base we compound, not start</div></div>
-          <div class="stat-card"><div class="sn">~$4.8M</div><div class="sl">Starting ARR run-rate before a single new add this year</div></div>
+          <div class="stat-card grow"><div class="sn">$497</div><div class="sl">Per month, month-to-month → $5,964 / yr recurring per active partner</div></div>
+          <div class="stat-card grow"><div class="sn">800+</div><div class="sl">Active partners today — the base we compound, not start</div></div>
+          <div class="stat-card grow"><div class="sn">~$4.8M</div><div class="sl">Starting ARR run-rate before a single new add this year</div></div>
         </div>
         <div class="note">Fulfillment margin per active patient is upside, not yet modeled — one of two numbers to pressure-test with you.</div>
       </div>
