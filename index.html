@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asher Health — First-Year Revenue Plan 2026</title>
+<title>Asher Health — VP of Sales · First-Year Revenue Plan 2026</title>
 
 <!-- ============================================================
-     ASHER HEALTH — FIRST-YEAR REVENUE PLAN
-     Sales Director, Nationwide | Interview Leave-Behind
-     Hybrid theme: dark navy sidebar, light clinical slides
+     ASHER HEALTH — VP OF SALES · FIRST-YEAR REVENUE PLAN
+     VP of Sales, Dallas (in-person) | Working-session deliverable
+     Spine: trust + retention flywheel | Hybrid navy/clinical theme
      ============================================================ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -301,6 +301,11 @@
     color: var(--accent);
     line-height: 1;
   }
+  /* word-label variant of .sn — for text headers (Closers / SDRs / Manager) that would overflow at numeric size */
+  .stat-card .sn.label {
+    font-size: clamp(26px, 2.6vw, 34px);
+    letter-spacing: -0.5px;
+  }
   .stat-card .sl {
     font-family: var(--font-body);
     font-weight: 400;
@@ -341,6 +346,29 @@
     color: var(--text-secondary);
   }
   .side-col p + p { margin-top: 10px; }
+
+  /* column checklist (inherited vs built) */
+  .col-list { list-style: none; }
+  .col-list li {
+    position: relative;
+    padding: 8px 0 8px 18px;
+    font-size: 13.5px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+  }
+  .col-list li:last-child { border-bottom: none; }
+  .col-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 15px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .side-col.miss .col-list li::before { background: var(--text-muted); }
+  .side-col.miss .col-h { color: var(--text-secondary); }
 
   /* three col */
   .three-col {
@@ -400,6 +428,7 @@
     margin-top: auto;
     padding-top: 18px;
   }
+  .comp-card .cc-foot.ink { color: var(--accent); }
 
   /* flow row */
   .flow-row {
@@ -418,6 +447,10 @@
     padding: 22px 18px;
     box-shadow: 0 6px 20px rgba(16,40,70,0.05);
   }
+  .flow-box.feature {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    border: none;
+  }
   .flow-box .fb-num {
     font-family: var(--font-display);
     font-size: 10px;
@@ -426,6 +459,7 @@
     text-transform: uppercase;
     margin-bottom: 10px;
   }
+  .flow-box.feature .fb-num { color: var(--accent-bright); }
   .flow-box .fb-h {
     font-family: var(--font-display);
     font-weight: 700;
@@ -434,12 +468,14 @@
     line-height: 1.18;
     margin-bottom: 8px;
   }
+  .flow-box.feature .fb-h { color: #fff; }
   .flow-box .fb-b {
     font-size: 12.5px;
     font-weight: 300;
     line-height: 1.45;
     color: var(--text-secondary);
   }
+  .flow-box.feature .fb-b { color: rgba(255,255,255,0.82); }
   .flow-arrow {
     display: flex;
     align-items: center;
@@ -469,36 +505,6 @@
     padding-top: 3px;
   }
   .minimal-list b { color: var(--text-primary); font-weight: 500; }
-
-  /* slide table */
-  .slide-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 12px;
-    font-size: 14.5px;
-  }
-  .slide-table thead th {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-align: left;
-    padding: 10px 16px;
-    border-bottom: 2px solid var(--accent);
-  }
-  .slide-table tbody td {
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-weight: 300;
-  }
-  .slide-table tbody td:first-child {
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-  .slide-table .em { color: var(--accent); font-weight: 700; font-family: var(--font-display); }
 
   /* ============================================================
      INFOGRAPHIC COMPONENTS
@@ -576,7 +582,7 @@
   }
   .scn-card.feature .m-lbl { color: rgba(255,255,255,0.7); }
 
-  /* horizontal bar comparison (capacity + retention) */
+  /* horizontal bar comparison */
   .bar-list { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
   .bar-item {
     display: grid;
@@ -617,7 +623,7 @@
   }
   .bar-tag b { font-family: var(--font-display); color: var(--accent); font-weight: 700; }
 
-  /* headcount ramp timeline */
+  /* headcount / sequence ramp */
   .ramp {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -684,6 +690,11 @@
     line-height: 1.2;
   }
   .ramp-meta .rm-hires { font-size: 11.5px; color: var(--text-secondary); margin-top: 5px; line-height: 1.35; }
+  .ramp-meta .rm-gate {
+    font-size: 10.5px; color: var(--accent); margin-top: 8px; line-height: 1.3;
+    padding-top: 8px; border-top: 1px dashed var(--border);
+  }
+  .ramp-meta .rm-gate b { font-weight: 700; letter-spacing: 0.3px; }
 
   /* severity-coded risk cards */
   .risk-grid {
@@ -727,6 +738,17 @@
   }
   .risk-mit { font-size: 13px; font-weight: 300; line-height: 1.5; color: var(--text-secondary); }
   .risk-mit b { color: var(--accent); font-weight: 500; }
+
+  /* flywheel caption */
+  .fw-cap {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    line-height: 1.5;
+  }
 
   /* divider slide */
   .divider-inner { position: relative; z-index: 2; width: 100%; }
@@ -837,14 +859,14 @@
     font-style: italic;
     font-size: clamp(13px, 1.3vw, 16px);
     color: var(--text-secondary);
-    max-width: 540px;
+    max-width: 600px;
     line-height: 1.5;
     margin-bottom: 28px;
   }
   .close-slide .close-statement {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(40px, 6vw, 84px);
+    font-size: clamp(38px, 5.4vw, 76px);
     line-height: 0.98;
     letter-spacing: -0.02em;
     color: var(--text-primary);
@@ -934,7 +956,7 @@
   @media (max-width: 880px) {
     .sidebar { display: none; }
     .slide { padding: 48px 36px; }
-    .side-by-side, .three-col { grid-template-columns: 1fr; }
+    .side-by-side, .three-col, .scenario-row, .risk-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -951,13 +973,13 @@
       </div>
       <div>
         <div class="brand-word"><b>ASHER</b> <span>health</span></div>
-        <div class="brand-sub">Revenue Plan · Y1</div>
+        <div class="brand-sub">First-Year Revenue Plan</div>
       </div>
     </div>
     <nav class="chapter-nav" id="chapterNav"></nav>
     <div class="side-footer">
-      Sales Director · Nationwide<br>
-      Interview Deliverable · 2026<br>
+      VP of Sales · Dallas<br>
+      Working-Session Deliverable · 2026<br>
       <a id="contactLink" href="#">contact</a>
     </div>
   </aside>
@@ -972,9 +994,9 @@
       <div class="slide-inner">
         <div class="t-eyebrow">First-Year Revenue Plan · 2026</div>
         <div class="t-word"><b>ASHER</b> <span>health</span></div>
-        <h1>Capacity execution against a hot, time-boxed window.</h1>
+        <h1>An engine that scales trust —<br>not just volume.</h1>
         <div class="t-meta">
-          <div class="t-meta-row"><b>Prepared for:</b>
+<div class="t-meta-row"><b>Prepared for:</b>
             <span class="t-recipients">
               <span>Josh Ponton</span>
               <span>Trevor Briggs</span>
@@ -985,558 +1007,718 @@
       </div>
     </section>
 
-    <!-- ============ CH 1 · THE SITUATION ============ -->
+    <!-- ============ CH 1 · THE REFRAME ============ -->
     <section class="slide divider-slide" data-chapter="1">
       <div class="ghost-num">01</div>
       <div class="slide-inner divider-inner">
-        <div class="divider-title">The Situation</div>
+        <div class="divider-title">The Reframe</div>
         <div class="divider-rule"></div>
-        <div class="divider-sub">A compliant, turnkey medical weight-loss program sold to non-medical wellness operators.</div>
+        <div class="divider-sub">The GTM question isn't inbound vs. outbound. It's whether the engine creates room for trust.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="1">
+      <div class="slide-inner" style="align-items:center;">
+        <div class="big-statement">What if the sales engine is built to scale everything —<br><em>except trust?</em></div>
+        <div class="note" style="text-align:center;max-width:760px;">Every sequence, every "personalized" email gets filtered through one question: <b style="font-style:normal;color:var(--accent)">"Does this person understand my world, or are they just working their numbers?"</b></div>
       </div>
     </section>
 
     <section class="slide" data-chapter="1">
       <div class="slide-inner">
-        <div class="section-label">The Buyer</div>
-        <h2 class="slide-h">One operator.<br>One signature.</h2>
+        <div class="section-label">The Pressure</div>
+        <h2 class="slide-h">Volume is coming.<br>Trust is the variable.</h2>
         <div class="stat-row">
-          <div class="stat-card"><div class="sn">1</div><div class="sl">Decision-maker — the SMB owner-operator</div></div>
-          <div class="stat-card"><div class="sn">CC</div><div class="sl">Credit-card close, direct procurement</div></div>
-          <div class="stat-card"><div class="sn">14–45</div><div class="sl">Day sales cycle, end to end</div></div>
+          <div class="stat-card"><div class="sn">3×</div><div class="sl">Marketing triples paid spend by end of Q4 — an inbound surge</div></div>
+          <div class="stat-card"><div class="sn">0→1</div><div class="sl">Outbound stood up from zero — a brand-new motion</div></div>
+          <div class="stat-card"><div class="sn">1</div><div class="sl">Risk that undoes both: trading trust for volume</div></div>
         </div>
+        <div class="note">The principle that governs this plan: the engine must create room for real connection <i>at scale</i> — measured in overjoyed, retained partners, not conversations or pipeline.</div>
       </div>
     </section>
 
     <section class="slide" data-chapter="1">
-      <div class="slide-inner">
-        <div class="section-label">What's Missing</div>
-        <h2 class="slide-h">The inbound is healthy.<br>The conversion isn't built.</h2>
-        <ul class="minimal-list">
-          <li><span class="li-num">01</span><span>No <b>disciplined demo→close</b> conversion of existing inbound</span></li>
-          <li><span class="li-num">02</span><span>No <b>outbound engine</b> — none, today</span></li>
-          <li><span class="li-num">03</span><span>No <b>sales force</b> to run either motion</span></li>
-        </ul>
+      <div class="slide-inner" style="align-items:center;">
+        <div class="section-label" style="text-align:center;">The Connecting Logic</div>
+        <h2 class="slide-h" style="text-align:center;">Trust compounds.</h2>
+        <svg viewBox="0 0 600 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trust flywheel: trust, activation, retention, referral, fuel" style="width:100%;max-width:520px;height:auto;display:block;margin:14px auto 0;">
+          <defs>
+            <marker id="fwHead" markerWidth="9" markerHeight="9" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#144a8a"></path>
+            </marker>
+            <linearGradient id="fwNode" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2f7ad1"></stop>
+              <stop offset="1" stop-color="#144a8a"></stop>
+            </linearGradient>
+          </defs>
+          <!-- value-creation arc 1 -> 5 (clockwise through 2,3,4) -->
+          <path d="M 300 60 A 175 175 0 1 1 134 181" fill="none" stroke="#2f7ad1" stroke-width="2.5" opacity="0.85"></path>
+          <!-- fuel returns to acquisition (5 -> 1) -->
+          <path d="M 134 181 A 175 175 0 0 1 300 60" fill="none" stroke="#144a8a" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#fwHead)"></path>
+          <g font-family="'Tomorrow', sans-serif" text-anchor="middle">
+            <circle cx="300" cy="60" r="30" fill="url(#fwNode)"></circle>
+            <text x="300" y="67" fill="#fff" font-size="20" font-weight="700">1</text>
+            <text x="300" y="20" fill="#11243a" font-size="15" font-weight="700">Trust</text>
+
+            <circle cx="466" cy="181" r="30" fill="url(#fwNode)"></circle>
+            <text x="466" y="188" fill="#fff" font-size="20" font-weight="700">2</text>
+            <text x="466" y="233" fill="#11243a" font-size="15" font-weight="700">Activation</text>
+
+            <circle cx="403" cy="377" r="30" fill="url(#fwNode)"></circle>
+            <text x="403" y="384" fill="#fff" font-size="20" font-weight="700">3</text>
+            <text x="403" y="429" fill="#11243a" font-size="15" font-weight="700">Retention</text>
+
+            <circle cx="197" cy="377" r="30" fill="url(#fwNode)"></circle>
+            <text x="197" y="384" fill="#fff" font-size="20" font-weight="700">4</text>
+            <text x="197" y="429" fill="#11243a" font-size="15" font-weight="700">Referral</text>
+
+            <circle cx="134" cy="181" r="30" fill="url(#fwNode)"></circle>
+            <text x="134" y="188" fill="#fff" font-size="20" font-weight="700">5</text>
+            <text x="134" y="233" fill="#11243a" font-size="15" font-weight="700">Fuel</text>
+
+            <text x="300" y="227" fill="#92a4ba" font-size="11" letter-spacing="2.5" font-weight="700">THE LOOP FUELS</text>
+            <text x="300" y="251" fill="#144a8a" font-size="17" font-weight="700">Inbound + Outbound</text>
+          </g>
+        </svg>
+        <div class="fw-cap">Every turn lowers acquisition cost and raises retention. The engine builds on itself.</div>
       </div>
     </section>
 
-    <!-- ============ CH 2 · THE UNLOCK ============ -->
+    <!-- ============ CH 2 · THE MARKET ============ -->
     <section class="slide divider-slide" data-chapter="2">
       <div class="ghost-num">02</div>
       <div class="slide-inner divider-inner">
-        <div class="divider-title">The Strategic Unlock</div>
+        <div class="divider-title">The Market</div>
         <div class="divider-rule"></div>
-        <div class="divider-sub">Timing. A regulatory shift is orphaning operators from their pharmacy source — right now.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="2">
-      <div class="slide-inner" style="align-items:center;text-align:center;">
-        <div class="hero-num">Apr 30</div>
-        <div class="hero-label">FDA proposes permanently barring 503B facilities from compounding semaglutide, tirzepatide &amp; liraglutide. Comment window closes June 29–30, 2026.</div>
+        <div class="divider-sub">The real problem isn't access to medication. It's operators watching their clients leak away.</div>
       </div>
     </section>
 
     <section class="slide" data-chapter="2">
       <div class="slide-inner" style="align-items:center;">
-        <div class="big-statement">A wave of wellness operators is being <em>orphaned from their pharmacy source</em> — the downstream of 50+ FDA warning letters and multiple platform shutdowns.</div>
+        <div class="big-statement">"Your biggest competitor isn't the gym down the street.<br><em>It's the telehealth company."</em></div>
+        <div class="hero-label" style="text-align:center;margin:18px auto 0;">Asher gym ad · cited by Trevor. The second enemy runs deeper — <i>medication without care.</i> Operators with the trust and the foot traffic watch their clients leak to DTC telehealth.</div>
       </div>
     </section>
 
     <section class="slide" data-chapter="2">
       <div class="slide-inner">
-        <div class="section-label">The Soft Landing</div>
-        <h2 class="slide-h">Asher is the<br>compliant catch.</h2>
+        <div class="section-label">Asher's Position</div>
+        <h2 class="slide-h">Keep the client.<br>Deliver real care.</h2>
+        <div class="lead">The operator adds a compliant medical service line under their own brand — and never prescribes or touches the medication. They keep the client they were about to lose, and deliver real care doing it.</div>
         <div class="pill-row">
           <span class="pill">50-State Prescriber Network</span>
           <span class="pill">503A Personalized Pathway</span>
+          <span class="pill">7-Day Care Team</span>
           <span class="pill">LegitScript · HIPAA</span>
-          <span class="pill">Peptide Menu</span>
         </div>
-        <div class="note">The single hottest outbound trigger of the year — and my read is that it isn't yet being worked systematically. Week-one to confirm and capture.</div>
+        <div class="note">Polarize on the enemy — DTC telehealth and medication-without-care. Stay deeply empathetic to the operator.</div>
       </div>
     </section>
 
-    <!-- ============ CH 3 · THE THESIS ============ -->
+    <!-- ============ CH 3 · THE SEAT ============ -->
     <section class="slide divider-slide" data-chapter="3">
       <div class="ghost-num">03</div>
       <div class="slide-inner divider-inner">
-        <div class="divider-title">The Thesis</div>
+        <div class="divider-title">The Seat</div>
         <div class="divider-rule"></div>
-        <div class="divider-sub">Not a moonshot. Capacity execution against a hot, time-boxed displacement window.</div>
+        <div class="divider-sub">VP of Sales, in Dallas. A builder on top of an already-producing machine.</div>
       </div>
     </section>
 
     <section class="slide" data-chapter="3">
       <div class="slide-inner">
-        <div class="section-label">Top 3 Initiatives</div>
-        <h2 class="slide-h">Convert. Build. Hire.</h2>
-        <div class="three-col">
-          <div class="comp-card">
-            <span class="cc-tag">0–30d</span>
-            <div class="cc-h">Instrument &amp; convert inbound</div>
-            <div class="cc-b">Speed-to-lead, routing SLA, demo→close playbook. No new headcount — the fastest revenue in the plan.</div>
-          </div>
-          <div class="comp-card">
-            <span class="cc-tag">30–90d</span>
-            <div class="cc-h">Build the outbound engine</div>
-            <div class="cc-b">ICP-scored lists, multi-channel cadence, built around the orphaned-partner trigger.</div>
-          </div>
-          <div class="comp-card feature">
-            <span class="cc-tag">Phased</span>
-            <div class="cc-h">Ramp the greenfield force</div>
-            <div class="cc-b">7 closers + 5 SDRs from zero, front-loaded with proven SMB operators.</div>
-            <div class="cc-foot">Built from zero</div>
-          </div>
-        </div>
+        <div class="section-label">How I Operate</div>
+        <h2 class="slide-h">Three things I hold to<br>be true about selling.</h2>
+        <ul class="minimal-list">
+          <li><span class="li-num">01</span><span><b>Complexity fails, simplicity scales.</b> The engine has to be simple enough that the floor can run it without me in the room.</span></li>
+          <li><span class="li-num">02</span><span><b>Sell with a servant's heart — then wrap systems around how you serve.</b> Serve the operator first; systematize it second. That order is the whole motion.</span></li>
+          <li><span class="li-num">03</span><span><b>Every sale clears two gates.</b> First you help them leave the status quo, then you help them past indecision — only then do you earn the business.</span></li>
+        </ul>
+        <div class="note">This is the lens behind every page of this plan — not a slogan I bolt on after the fact.</div>
       </div>
     </section>
 
     <section class="slide" data-chapter="3">
       <div class="slide-inner">
-        <div class="section-label">Year-1 Target · Derived, Not Assumed</div>
-        <h2 class="slide-h">The number.</h2>
-        <div class="scenario-row">
-          <div class="scn-card">
-            <div class="scn-head"><span class="scn-tier">Floor</span></div>
-            <div class="scn-metric"><span class="m-val">~340</span><span class="m-lbl">Gross new activations (logos)</span></div>
-            <div class="scn-metric"><span class="m-val">~$2.6M</span><span class="m-lbl">Exit ARR run-rate (net of churn)</span></div>
-            <div class="scn-metric"><span class="m-val">~$1.7M</span><span class="m-lbl">In-year recognized revenue</span></div>
-          </div>
-          <div class="scn-card feature">
-            <div class="scn-head"><span class="scn-tier">Plan</span><span class="scn-flag">Target</span></div>
-            <div class="scn-metric"><span class="m-val">~425</span><span class="m-lbl">Gross new activations (logos)</span></div>
-            <div class="scn-metric"><span class="m-val">~$3.2M</span><span class="m-lbl">Exit ARR run-rate (net of churn)</span></div>
-            <div class="scn-metric"><span class="m-val">~$2.2M</span><span class="m-lbl">In-year recognized revenue</span></div>
-          </div>
-          <div class="scn-card">
-            <div class="scn-head"><span class="scn-tier">Stretch</span></div>
-            <div class="scn-metric"><span class="m-val">~515</span><span class="m-lbl">Gross new activations (logos)</span></div>
-            <div class="scn-metric"><span class="m-val">~$3.9M</span><span class="m-lbl">Exit ARR run-rate (net of churn)</span></div>
-            <div class="scn-metric"><span class="m-val">~$2.6M</span><span class="m-lbl">In-year recognized revenue</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CH 4 · MARKET & PMF ============ -->
-    <section class="slide divider-slide" data-chapter="4">
-      <div class="ghost-num">04</div>
-      <div class="slide-inner divider-inner">
-        <div class="divider-title">Market &amp; PMF</div>
-        <div class="divider-rule"></div>
-        <div class="divider-sub">Where positioning strength aligns with customer fit — and where it must evolve.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="4">
-      <div class="slide-inner">
-        <div class="section-label">Fit vs. Friction</div>
-        <h2 class="slide-h">The moat moved.</h2>
+        <div class="section-label">The Honest Map</div>
+        <h2 class="slide-h">Inherited vs. built.</h2>
         <div class="side-by-side">
           <div class="side-col ac">
-            <div class="col-h">Where fit is strongest</div>
-            <p>The operator already owns a trusted, recurring client relationship — and watches those clients drive across town for GLP-1s.</p>
-            <p>Asher converts that leakage into high-margin recurring revenue in 14–48 hours, with zero clinical build.</p>
+            <div class="col-h">In place</div>
+            <ul class="col-list">
+              <li>Working inbound team closing ~100 partners / month</li>
+              <li>Rebuilt cadences + Monday forecasting</li>
+              <li>Clean pipeline discipline + no-show recovery</li>
+              <li>Consultative scripts + onboarding playbook</li>
+              <li>Comp plans, scoring &amp; KPIs</li>
+            </ul>
           </div>
-          <div class="side-col">
-            <div class="col-h">Where it must evolve</div>
-            <p>The early pitch leaned on the price arbitrage of cheap compounded semaglutide. That moat is eroding from two directions.</p>
-            <p><b style="color:var(--accent)">Regulatory:</b> 503B mass-compounding is closing. <b style="color:var(--accent)">Price:</b> branded DTC has collapsed toward the compounded range.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="4">
-      <div class="slide-inner" style="align-items:center;">
-        <div class="big-statement">The durable pitch is <em>compliance + done-for-you infrastructure + the client relationship</em> — not the lowest semaglutide price.</div>
-        <div class="note" style="text-align:center;">A positioning lever the Sales Director owns — not a product problem to wait on.</div>
-      </div>
-    </section>
-
-    <!-- ============ CH 5 · ICP PROFILES ============ -->
-    <section class="slide divider-slide" data-chapter="5">
-      <div class="ghost-num">05</div>
-      <div class="slide-inner divider-inner">
-        <div class="divider-title">Three ICP Profiles</div>
-        <div class="divider-rule"></div>
-        <div class="divider-sub">Calibrated to the SMB column. Outreach reference cards — each ends with the trigger stack and the angle.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="5">
-      <div class="slide-inner" style="align-items:center;">
-        <div class="section-label" style="text-align:center;">Cross-ICP Master Trigger · Work This First</div>
-        <div class="big-statement">"Recently lost their <em>compounding / pharmacy source.</em>"</div>
-        <div class="note" style="text-align:center;">Highest-intent, most time-perishable signal in the market. Stack with any second critical signal — and the account is a day-one call regardless of tier.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="5">
-      <div class="slide-inner">
-        <div class="section-label">ICP 1 · Tier 1 — Fastest Close</div>
-        <h2 class="slide-h">Med Spas &amp; Aesthetic Clinics</h2>
-        <div class="lead">Medically literate, existing injectable patients, shortest education curve. Highest willingness to retail at $400–600/mo.</div>
-        <div class="side-by-side" style="margin-top:26px;">
-          <div class="side-col">
-            <div class="col-h">Trigger Stack</div>
-            <p>Advertising semaglutide / weight loss · lost compounding source · new location · hiring injectors.</p>
-          </div>
-          <div class="side-col ac">
-            <div class="col-h">Outbound Angle</div>
-            <p><i>"Keep your weight-loss revenue compliant after the compounding crackdown — independent 50-state prescribers plus a personalized 503A pathway, live in 48 hours."</i></p>
+          <div class="side-col miss">
+            <div class="col-h">The mandate (missing)</div>
+            <ul class="col-list">
+              <li>A sales leader over it day to day</li>
+              <li>A manager under that leader running the floor</li>
+              <li>Any outbound — SDR layer, sequencing, research</li>
+              <li>A follow-up motion against the 15,000 database</li>
+              <li>A real affiliate program + an enterprise playbook</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-chapter="5">
+    <section class="slide" data-chapter="3">
       <div class="slide-inner">
-        <div class="section-label">ICP 2 · Tier 1–2 — Volume Play</div>
-        <h2 class="slide-h">Gyms &amp; Boutique Fitness</h2>
-        <div class="lead">Largest latent demand, but a real education gap. Close rate lifts dramatically with peer revenue proof.</div>
-        <div class="side-by-side" style="margin-top:26px;">
-          <div class="side-col">
-            <div class="col-h">Trigger Stack</div>
-            <p>Members asking about GLP-1 · owner posting transformation content · adding body-comp scans · franchise piloting.</p>
+        <div class="section-label">The Mandate</div>
+        <h2 class="slide-h">Finish. Scale. Build.</h2>
+        <div class="three-col">
+          <div class="comp-card">
+            <span class="cc-tag">Finish</span>
+            <div class="cc-h">Take the rebuilt foundation and finish it</div>
+            <div class="cc-b">Find the gaps the four-week rebuild didn't reach and complete them. Same standards, no slippage.</div>
           </div>
-          <div class="side-col ac">
-            <div class="col-h">Outbound Angle</div>
-            <p><i>"Add a $10–40K/month recurring line to the member base you already have — no clinic, no license, all clinical and compliance handled."</i></p>
+          <div class="comp-card">
+            <span class="cc-tag">Scale</span>
+            <div class="cc-h">Build &amp; scale the inbound team</div>
+            <div class="cc-b">Be ready when the Q4 3× lead flow hits — and absorb it without dropping the consultative sale.</div>
+          </div>
+          <div class="comp-card feature">
+            <span class="cc-tag">Build</span>
+            <div class="cc-h">Stand up the outbound motion from zero</div>
+            <div class="cc-b">15k dormant database, an untapped affiliate channel, and enterprise accounts inbound won't reach.</div>
+            <div class="cc-foot">From scratch</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" data-chapter="5">
+    <section class="slide" data-chapter="3">
       <div class="slide-inner">
-        <div class="section-label">ICP 3 · Tier 1–2 — Most Resilient</div>
-        <h2 class="slide-h">Coaches &amp; Functional Practices</h2>
-        <div class="lead">Already running peptides / hormones — easy cross-sell, and the ICP least exposed to a GLP-1 compounding clamp-down.</div>
-        <div class="side-by-side" style="margin-top:26px;">
-          <div class="side-col">
-            <div class="col-h">Trigger Stack</div>
-            <p>Already offering peptides / hormones · lost compounding source · advertising weight loss · certification-seeking.</p>
-          </div>
-          <div class="side-col ac">
-            <div class="col-h">Outbound Angle</div>
-            <p><i>"Compliant peptide + GLP-1 fulfillment that survives the FDA crackdown — diversify beyond commoditized semaglutide."</i></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="5">
-      <div class="slide-inner">
-        <div class="section-label">Retention-Weighted Prioritization</div>
-        <h2 class="slide-h">Not all logos are equal.</h2>
-        <div class="bar-list">
-          <div class="bar-item">
-            <div class="bar-label">DPC / concierge + functional<span class="bl-sub">ICP-3</span></div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:47%;background:var(--navy-darker);"><span class="bf-val">~10–20%</span></div>
-              <span class="bar-tag"><b>Anchor</b></span>
-            </div>
-          </div>
-          <div class="bar-item">
-            <div class="bar-label">Hormone / TRT clinics<span class="bl-sub">ICP-3</span></div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:70%;background:var(--navy);"><span class="bf-val">~20–25%</span></div>
-              <span class="bar-tag"><b>Core</b></span>
-            </div>
-          </div>
-          <div class="bar-item">
-            <div class="bar-label">Med spas / aesthetic<span class="bl-sub">ICP-1</span></div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:70%;background:var(--navy);"><span class="bf-val">~20–25%</span></div>
-              <span class="bar-tag"><b>Core</b></span>
-            </div>
-          </div>
-          <div class="bar-item">
-            <div class="bar-label">Boutique fitness / PT<span class="bl-sub">ICP-2</span></div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:86%;background:var(--accent-bright);"><span class="bf-val">~25–30%</span></div>
-              <span class="bar-tag">Volume</span>
-            </div>
-          </div>
-          <div class="bar-item">
-            <div class="bar-label">Transactional / telehealth-style<span class="bl-sub">All tiers</span></div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:100%;background:var(--text-muted);"><span class="bf-val">~30%+</span></div>
-              <span class="bar-tag">Opportunistic</span>
-            </div>
-          </div>
-        </div>
-        <div class="note">Bars show monthly churn — shorter is stickier. Lead with ICP-1 for speed; weight the standing pipeline toward ICP-3 Anchor/Core for durable ARR.</div>
-      </div>
-    </section>
-
-    <!-- ============ CH 6 · REVENUE MODEL ============ -->
-    <section class="slide divider-slide" data-chapter="6">
-      <div class="ghost-num">06</div>
-      <div class="slide-inner divider-inner">
-        <div class="divider-title">Revenue Model</div>
-        <div class="divider-rule"></div>
-        <div class="divider-sub">Target derived from capacity. Every assumption exposed for the room to pressure-test.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="6">
-      <div class="slide-inner">
-        <div class="section-label">Per-Partner Economics · Asher's Revenue</div>
-        <h2 class="slide-h">~$14,400 ARR<br>at steady state.</h2>
-        <div class="stat-row">
-          <div class="stat-card"><div class="sn">~$2K</div><div class="sl">Activation fee — one-time booking</div></div>
-          <div class="stat-card"><div class="sn">~$297</div><div class="sl">Subscription / mo → $3,564 / yr recurring</div></div>
-          <div class="stat-card"><div class="sn">~$75</div><div class="sl">Usage margin / active patient / mo <i>(validate w/ Finance)</i></div></div>
-        </div>
-        <div class="note">Usage margin per patient is the single swing variable. The headline is anchored on activated logos, with ARR derived.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="6">
-      <div class="slide-inner">
-        <div class="section-label">Capacity Model · Built From Zero</div>
-        <h2 class="slide-h">~10 partners /<br>closer / month.</h2>
-        <div class="lead">~40 qualified demos × ~25% demo→activation. Floor/stretch flex the close rate 20% / 30%. Phased hire plan → ~43 productive closer-months in Year 1.</div>
-        <div class="bar-list">
-          <div class="bar-item">
-            <div class="bar-label">Floor<span class="bl-sub">20% close rate</span></div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:67%;background:var(--text-muted);"><span class="bf-val">8 / mo</span></div>
-              <span class="bar-tag">→ <b>~340</b> gross activations</span>
-            </div>
-          </div>
-          <div class="bar-item">
-            <div class="bar-label">Plan<span class="bl-sub">25% close rate</span></div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:83%;background:linear-gradient(90deg,var(--accent),var(--accent-bright));"><span class="bf-val">10 / mo</span></div>
-              <span class="bar-tag">→ <b>~425</b> gross activations</span>
-            </div>
-          </div>
-          <div class="bar-item">
-            <div class="bar-label">Stretch<span class="bl-sub">30% close rate</span></div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:100%;background:var(--navy-deep);"><span class="bf-val">12 / mo</span></div>
-              <span class="bar-tag">→ <b>~515</b> gross activations</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="6">
-      <div class="slide-inner">
-        <div class="section-label">Gross Activations → Net ARR Bridge</div>
-        <h2 class="slide-h">A three-step waterfall.</h2>
-        <div class="flow-row">
-          <div class="flow-box">
-            <div class="fb-num">Step 01</div>
-            <div class="fb-h">~425 logos</div>
-            <div class="fb-b">Gross activations — the metric the sales org is credited on.</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-box">
-            <div class="fb-num">Step 02</div>
-            <div class="fb-h">~$9,500 / partner</div>
-            <div class="fb-b">Exit ARR per surviving partner → ~$4.0M gross book before churn.</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-box">
-            <div class="fb-num">Step 03</div>
-            <div class="fb-h">~340 net-active</div>
-            <div class="fb-b">~80% realization — book is back-loaded, most partners too new to churn.</div>
-          </div>
-        </div>
-        <div class="note">Exit net ARR run-rate ≈ 340 net-active × ~$9,500 ≈ ~$3.2M.</div>
-      </div>
-    </section>
-
-    <!-- ============ CH 7 · GTM BUILD ============ -->
-    <section class="slide divider-slide" data-chapter="7">
-      <div class="ghost-num">07</div>
-      <div class="slide-inner divider-inner">
-        <div class="divider-title">GTM Build</div>
-        <div class="divider-rule"></div>
-        <div class="divider-sub">Org, lead engines, capacity — phased across the year.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="7">
-      <div class="slide-inner">
-        <div class="section-label">Sales Org · Greenfield, Phased</div>
-        <h2 class="slide-h">2 → 12 in four waves.</h2>
-        <div class="ramp">
-          <div class="ramp-col">
-            <div class="ramp-bar" style="min-height:74px;"><span class="rb-total">3</span><span class="rb-split">2C / 1S</span></div>
-            <div class="ramp-meta">
-              <span class="rm-month">M1</span>
-              <div class="rm-phase">Foundation</div>
-              <div class="rm-hires">+2 closers · 1 SDR</div>
-            </div>
-          </div>
-          <div class="ramp-col">
-            <div class="ramp-bar" style="min-height:142px;"><span class="rb-total">7</span><span class="rb-split">4C / 3S</span></div>
-            <div class="ramp-meta">
-              <span class="rm-month">M4</span>
-              <div class="rm-phase">Outbound stand-up</div>
-              <div class="rm-hires">+2 closers · 2 SDRs</div>
-            </div>
-          </div>
-          <div class="ramp-col">
-            <div class="ramp-bar" style="min-height:196px;"><span class="rb-total">10</span><span class="rb-split">6C / 4S</span></div>
-            <div class="ramp-meta">
-              <span class="rm-month">M7</span>
-              <div class="rm-phase">Scale</div>
-              <div class="rm-hires">+2 closers · 1 SDR</div>
-            </div>
-          </div>
-          <div class="ramp-col">
-            <div class="ramp-bar" style="min-height:236px;"><span class="rb-total">12</span><span class="rb-split">7C / 5S</span></div>
-            <div class="ramp-meta">
-              <span class="rm-month">M10</span>
-              <div class="rm-phase">Optimize</div>
-              <div class="rm-hires">+1 closer · 1 SDR</div>
-            </div>
-          </div>
-        </div>
-        <div class="note">Director runs player-coach in the foundation phase, then shifts to pure leadership by M4.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-chapter="7">
-      <div class="slide-inner">
-        <div class="section-label">Inbound Engine · Optimize, Don't Rebuild</div>
-        <h2 class="slide-h">Conversion, not<br>lead-gen.</h2>
+        <div class="section-label">How I'll Hold It</div>
+        <h2 class="slide-h">Claim the department.<br>Sequence the build.</h2>
         <ul class="minimal-list">
-          <li><span class="li-num">01</span><span><b>Speed-to-lead + routing SLA</b> — first touch in minutes, round-robin with ownership</span></li>
-          <li><span class="li-num">02</span><span><b>Demo show-rate</b> — confirmation sequence + pre-demo qualification</span></li>
-          <li><span class="li-num">03</span><span><b>Demo→close discipline</b> — where SMB inbound revenue actually leaks</span></li>
-          <li><span class="li-num">04</span><span><b>Trial→paid + time-to-first-enrollment</b> — hand off with a target, not just a logo</span></li>
+          <li><span class="li-num">01</span><span><b>Trenches first</b> — coach reps and sit on calls before hiring the manager underneath. The first act of earning trust is doing the work.</span></li>
+          <li><span class="li-num">02</span><span><b>Dallas in-person is a feature</b> — a consultative, coaching-heavy motion is built on a floor. It's where the trust engine is manufactured.</span></li>
+          <li><span class="li-num">03</span><span><b>Not a 90-day plan</b> — a sequenced build where each phase funds the next.</span></li>
         </ul>
       </div>
     </section>
 
-    <section class="slide" data-chapter="7">
-      <div class="slide-inner">
-        <div class="section-label">Outbound Engine · Build From Zero</div>
-        <h2 class="slide-h">The sourcing squeeze.</h2>
-        <div class="flow-row">
-          <div class="flow-box">
-            <div class="fb-num">Lists</div>
-            <div class="fb-h">Origami / Claude + Apify</div>
-            <div class="fb-b">Two parallel build paths — selected live on the workflow. Apify scrapes med spas, gyms &amp; clinics from Google Maps; the AI layer scores &amp; enriches against the ICP Datapoint Framework.</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-box">
-            <div class="fb-num">Trigger</div>
-            <div class="fb-h">Orphaned-partner first</div>
-            <div class="fb-b">Then new-location and active-weight-loss-advertising stacks.</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-box">
-            <div class="fb-num">Cadence</div>
-            <div class="fb-h">Call · Email · IG DM</div>
-            <div class="fb-b">DOS Extended on calls; The Signal Sequence on email. Buyers live on Instagram.</div>
-          </div>
-        </div>
-        <div class="note">Open on their sourcing risk, close on the Readiness Assessment.</div>
+    <!-- ============ CH 4 · THE BUYER ============ -->
+    <section class="slide divider-slide" data-chapter="4">
+      <div class="ghost-num">04</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">The Buyer</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Three operators. Three different conversations. One trust test.</div>
       </div>
     </section>
 
-    <section class="slide" data-chapter="7">
+    <section class="slide" data-chapter="4">
+      <div class="slide-inner" style="align-items:center;">
+        <div class="big-statement">The sale is a <em>business consultation</em> —<br>not a demo.</div>
+        <div class="note" style="text-align:center;max-width:720px;">"How does this fit your model, your pricing, your patient journey, your team?" The trust test, made literal: the rep proves they understand the operator's world.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="4">
       <div class="slide-inner">
-        <div class="section-label">Channel &amp; Expansion Vectors</div>
-        <h2 class="slide-h">Logo leverage<br>&amp; durable lines.</h2>
+        <div class="section-label">Three Conversations</div>
+        <h2 class="slide-h">Not one pitch.</h2>
         <div class="three-col">
           <div class="comp-card">
-            <span class="cc-tag">Channel</span>
-            <div class="cc-h">One signature, many locations</div>
-            <div class="cc-b">Franchise &amp; multi-location groups; med-spa groups; consultants as referral partners.</div>
-          </div>
-          <div class="comp-card">
-            <span class="cc-tag">Conferences</span>
-            <div class="cc-h">Premium segments only</div>
-            <div class="cc-b">A4M, LongevityFest, AMMG concentrate high-ACV buyers. Pilot one mid-year — trade-off flagged.</div>
+            <span class="cc-tag">ICP 1 · Gym &amp; Coach</span>
+            <div class="cc-h">Getting left behind</div>
+            <div class="cc-b"><b style="color:var(--accent)">Trigger:</b> a peer in the franchise signs on. <b style="color:var(--accent)">Angle:</b> remove the clinical burden so they stay the trusted face — and stop losing their people.</div>
           </div>
           <div class="comp-card feature">
-            <span class="cc-tag">Expand</span>
-            <div class="cc-h">Peptide / hormone cross-sell</div>
-            <div class="cc-b">Land on GLP-1, expand into the menu least exposed to the compounding clamp-down.</div>
-            <div class="cc-foot">Regulatory-resilient</div>
+            <span class="cc-tag">ICP 2 · Med Spa</span>
+            <div class="cc-h">Paying too much for the old way</div>
+            <div class="cc-b">Medically literate. <b style="color:#fff">Trigger:</b> escape the $150K medical-director bill + injection crackdown. Speak compliance precisely.</div>
+            <div class="cc-foot">Outbound beachhead</div>
+          </div>
+          <div class="comp-card">
+            <span class="cc-tag">ICP 3 · Chiro &amp; Wellness</span>
+            <div class="cc-h">The emerging third lane</div>
+            <div class="cc-b">Sees the patient weekly, already trusted. <b style="color:var(--accent)">Angle:</b> extend that trust into a new line without becoming a clinic. Most retentive.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ CH 8 · RISKS ============ -->
+    <section class="slide" data-chapter="4">
+      <div class="slide-inner">
+        <div class="section-label">Where We Aim</div>
+        <h2 class="slide-h">Clearest ROI first.</h2>
+        <div class="side-by-side">
+          <div class="side-col ac">
+            <div class="col-h">Outbound beachhead · Med Spa</div>
+            <p>Most quantifiable ROI ($150K oversight → $497/mo), medically literate, fastest consultative close, highest willingness to pay. The proving ground for the whole outbound motion.</p>
+          </div>
+          <div class="side-col">
+            <div class="col-h">Distinct 4th motion · Enterprise</div>
+            <p>Larger multi-location operators — "one signature, many locations." A longer, multi-stakeholder sale with its own playbook and, eventually, dedicated reps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="4">
+      <div class="slide-inner">
+        <div class="section-label">The Motion Inside Every Conversation</div>
+        <h2 class="slide-h">Two gates, then the ask.</h2>
+        <div class="three-col">
+          <div class="comp-card">
+            <span class="cc-tag">First gate</span>
+            <div class="cc-h">Overcome the status quo</div>
+            <div class="cc-b"><b style="color:var(--accent)">"Why change at all?"</b> Make the cost of staying concrete — patients leaking to telehealth, the $150K oversight bill — until doing nothing is the risky choice.</div>
+          </div>
+          <div class="comp-card">
+            <span class="cc-tag">Second gate</span>
+            <div class="cc-h">Overcome indecision</div>
+            <div class="cc-b"><b style="color:var(--accent)">"Why now, why you?"</b> Remove the risk — 14 days free, month-to-month, compliance handled — so the safe move becomes saying yes.</div>
+          </div>
+          <div class="comp-card feature">
+            <span class="cc-tag">Then — and only then</span>
+            <div class="cc-h">Earn the partnership</div>
+            <div class="cc-b">The ask is the natural close of two problems already solved together — not a push at the end of a pitch.</div>
+            <div class="cc-foot">Ask for the business</div>
+          </div>
+        </div>
+        <div class="note">Both gates are trust work. Skip either and you get a "yes" that churns — which is why the motion lives upstream of the close, not at it.</div>
+      </div>
+    </section>
+
+    <!-- ============ CH 5 · INBOUND ENGINE ============ -->
+    <section class="slide divider-slide" data-chapter="5">
+      <div class="ghost-num">05</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">Inbound Engine</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Finish the rebuild. Absorb the Q4 3× — without dropping the consultative sale.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="5">
+      <div class="slide-inner">
+        <div class="section-label">Start Here</div>
+        <h2 class="slide-h">Diagnose before<br>you change.</h2>
+        <div class="stat-row">
+          <div class="stat-card"><div class="sn">~100</div><div class="sl">Partners closing per month, today — a producing machine</div></div>
+          <div class="stat-card"><div class="sn">~90%</div><div class="sl">From inbound paid ads — the engine to be protected</div></div>
+          <div class="stat-card"><div class="sn">2 wks</div><div class="sl">Listen to calls &amp; find the leaks before changing the rebuild</div></div>
+        </div>
+        <div class="note">Restraint is a trust act — with the team and the founders. Find where revenue actually leaks before installing anything new.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="5">
+      <div class="slide-inner">
+        <div class="section-label">The Q4 Tension</div>
+        <h2 class="slide-h">3× spend ≠ 3× closes.</h2>
+        <div class="side-by-side">
+          <div class="side-col">
+            <div class="col-h">The trap</div>
+            <p>More reps, more speed, more dials. Close rate slides, the consultative sale collapses into a transaction — and trust is spent to hit a number.</p>
+          </div>
+          <div class="side-col ac">
+            <div class="col-h">The move · Tier the surge</div>
+            <p>High-fit / high-intent leads get the full consultative motion. A lighter, async-assisted fast-lane works the rest — so nothing the founders paid 3× for goes dark, without diluting the core sale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="5">
+      <div class="slide-inner">
+        <div class="section-label">Hold Trust Under Scale</div>
+        <h2 class="slide-h">Coaching density.<br>Honest disqualifying.</h2>
+        <ul class="minimal-list">
+          <li><span class="li-num">01</span><span><b>Manager protects coaching density</b> — the mechanism that keeps trust from diluting as the team grows</span></li>
+          <li><span class="li-num">02</span><span><b>Disqualify faster &amp; more honestly</b> — a trust act and a retention filter</span></li>
+          <li><span class="li-num">03</span><span><b>Async trust-at-scale</b> — ASHER University, partner proof, the ~1,400 community do trust-work around the human conversation</span></li>
+        </ul>
+        <div class="note">Scoreboard: comp on close + activation (day 10–12); track 30/60/90 retention for coaching. <b style="font-style:normal;color:var(--accent)">Celebrate gross, commit on net.</b></div>
+      </div>
+    </section>
+
+    <!-- ============ CH 6 · OUTBOUND ENGINE ============ -->
+    <section class="slide divider-slide" data-chapter="6">
+      <div class="ghost-num">06</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">Outbound Engine</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">From zero — warm-first. It isn't about the stack; it's whether the sequence earns trust.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="6">
+      <div class="slide-inner">
+        <div class="section-label">Warm Before Cold</div>
+        <h2 class="slide-h">Spend trust where<br>it already exists.</h2>
+        <div class="flow-row">
+          <div class="flow-box feature">
+            <div class="fb-num">First</div>
+            <div class="fb-h">15,000 warm DB</div>
+            <div class="fb-b">Booked, then ghosted. Own the drop, lead with value — reactivation, not prospecting.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">Then</div>
+            <div class="fb-h">Affiliate channel</div>
+            <div class="fb-b">Overjoyed partners refer peers — the flywheel productized.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">Then</div>
+            <div class="fb-h">Cold · Med spa</div>
+            <div class="fb-b">The true from-zero SDR build on the cost/risk beachhead.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">Then</div>
+            <div class="fb-h">Enterprise</div>
+            <div class="fb-b">Multi-location — the distinct 4th motion with its own playbook.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="6">
+      <div class="slide-inner">
+        <div class="section-label">Built Trust-First</div>
+        <h2 class="slide-h">Research-led.<br>Never spray.</h2>
+        <ul class="minimal-list">
+          <li><span class="li-num">01</span><span><b>Research the operator's real situation</b> — personalization that's real, not merge-tags</span></li>
+          <li><span class="li-num">02</span><span><b>Consultative cadence</b> — open on their risk, lead with value, close on a consultation</span></li>
+          <li><span class="li-num">03</span><span><b>Multi-channel where the buyer lives</b> — call · email · IG DM, human not spammy</span></li>
+          <li><span class="li-num">04</span><span><b>SDRs comped on qualified-meetings-that-show-and-progress</b> — never raw bookings</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CH 7 · THE ORG ============ -->
+    <section class="slide divider-slide" data-chapter="7">
+      <div class="ghost-num">07</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">The Org</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">Simplicity scales — a department simple enough the floor runs without me. Manager-first, hired to the trust bar.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="7">
+      <div class="slide-inner">
+        <div class="section-label">The Build Order</div>
+        <h2 class="slide-h">Player-coach →<br>department.</h2>
+        <div class="flow-row">
+          <div class="flow-box">
+            <div class="fb-num">Phase 1</div>
+            <div class="fb-h">VP player-coach</div>
+            <div class="fb-b">Hold the inbound floor, calibrate the consultative bar.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">At Q4</div>
+            <div class="fb-h">Sales manager</div>
+            <div class="fb-b">Promoted from inbound to run the floor — the fastest unlock.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="fb-num">Then</div>
+            <div class="fb-h">SDRs + AEs</div>
+            <div class="fb-b">External builders for the outbound muscle the team lacks.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box feature">
+            <div class="fb-num">Then</div>
+            <div class="fb-h">Enterprise + lead</div>
+            <div class="fb-b">The 4th motion and an outbound lead as it scales.</div>
+          </div>
+        </div>
+        <div class="note">Manager promoted from inbound — already fluent in the sale, already trusted. External builders hired hard against the six values.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="7">
+      <div class="slide-inner">
+        <div class="section-label">The Hiring Bar = The Trust Bar</div>
+        <h2 class="slide-h">Culture first.<br>Consultative always.</h2>
+        <ul class="minimal-list">
+          <li><span class="li-num">01</span><span>Every hire can hold the <b>business-consultation</b> conversation — sell to operators, not users</span></li>
+          <li><span class="li-num">02</span><span>Hired <b>culture-fit first, performance second</b>, against the six values</span></li>
+          <li><span class="li-num">03</span><span>Closers = consultative SMB operators · SDRs = <b>research-minded, not dialers</b></span></li>
+        </ul>
+        <div class="note">Ramp certifies the consultative bar before a rep touches high-volume flow. ASHER University is the onboarding spine.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="7">
+      <div class="slide-inner">
+        <div class="section-label">Comp Finishes Josh's Plan</div>
+        <h2 class="slide-h">Pay for trust,<br>not just volume.</h2>
+        <div class="stat-row">
+          <div class="stat-card"><div class="sn label">Closers</div><div class="sl">Base + commission with an <b>activation gate</b> (paid through day 10–12)</div></div>
+          <div class="stat-card"><div class="sn label">SDRs</div><div class="sl">Qualified-meetings-that-show-and-progress — not raw bookings</div></div>
+          <div class="stat-card"><div class="sn label">Manager</div><div class="sl">Blended team quality — close + activation + coaching outcomes</div></div>
+        </div>
+        <div class="note">Build on the rebuilt comp plans — finish and extend, don't rip and replace.</div>
+      </div>
+    </section>
+
+    <!-- ============ CH 8 · THE NUMBER ============ -->
     <section class="slide divider-slide" data-chapter="8">
       <div class="ghost-num">08</div>
       <div class="slide-inner divider-inner">
-        <div class="divider-title">Risks &amp; Mitigations</div>
+        <div class="divider-title">The Number</div>
         <div class="divider-rule"></div>
-        <div class="divider-sub">Every headwind named, severity-rated, and answered.</div>
+        <div class="divider-sub">Derived from the real run-rate. Every assumption exposed to pressure-test.</div>
       </div>
     </section>
 
     <section class="slide" data-chapter="8">
       <div class="slide-inner">
-        <div class="section-label">Critical Risks</div>
-        <h2 class="slide-h">Named &amp; answered.</h2>
-        <div class="risk-grid">
-          <div class="risk-card crit">
-            <div class="risk-head"><div class="risk-name">Regulatory / supply contraction</div><span class="risk-sev">Critical</span></div>
-            <div class="risk-mit">Position on <b>compliance + personalization</b>; diversify toward peptides.</div>
-          </div>
-          <div class="risk-card high">
-            <div class="risk-head"><div class="risk-name">Branded-DTC price compression</div><span class="risk-sev">High</span></div>
-            <div class="risk-mit">Sell the <b>relationship + full-service wrap</b>; qualify for sticky books.</div>
-          </div>
-          <div class="risk-card high">
-            <div class="risk-head"><div class="risk-name">Greenfield ramp slippage</div><span class="risk-sev">High</span></div>
-            <div class="risk-mit">Front-load <b>proven SMB closers</b>; ride inbound while outbound stands up.</div>
-          </div>
-          <div class="risk-card mod">
-            <div class="risk-head"><div class="risk-name">Activation ≠ success</div><span class="risk-sev">Moderate</span></div>
-            <div class="risk-mit">Engaged-client-base floor as a <b>hard deal gate</b>; track churn_rate_by_icp.</div>
-          </div>
+        <div class="section-label">Per-Partner Economics</div>
+        <h2 class="slide-h">$497/mo.<br>~$4.8M already.</h2>
+        <div class="stat-row">
+          <div class="stat-card"><div class="sn">$497</div><div class="sl">Per month, month-to-month → $5,964 / yr recurring per active partner</div></div>
+          <div class="stat-card"><div class="sn">800+</div><div class="sl">Active partners today — the base we compound, not start</div></div>
+          <div class="stat-card"><div class="sn">~$4.8M</div><div class="sl">Starting ARR run-rate before a single new add this year</div></div>
         </div>
+        <div class="note">Fulfillment margin per active patient is upside, not yet modeled — one of two numbers to pressure-test with you.</div>
       </div>
     </section>
 
-    <!-- ============ CH 9 · EXECUTION ============ -->
+    <section class="slide" data-chapter="8">
+      <div class="slide-inner">
+        <div class="section-label">Year-1 Gross Adds · Modeled, Not Assumed</div>
+        <h2 class="slide-h">Compounding a<br>producing machine.</h2>
+        <div class="scenario-row">
+          <div class="scn-card">
+            <div class="scn-head"><span class="scn-tier">Floor</span></div>
+            <div class="scn-metric"><span class="m-val">~1,200</span><span class="m-lbl">Inbound adds / yr (flat ~100/mo)</span></div>
+            <div class="scn-metric"><span class="m-val">~75</span><span class="m-lbl">Outbound adds / yr (from zero)</span></div>
+            <div class="scn-metric"><span class="m-val">~1,275</span><span class="m-lbl">Total gross adds</span></div>
+          </div>
+          <div class="scn-card feature">
+            <div class="scn-head"><span class="scn-tier">Plan</span><span class="scn-flag">Target</span></div>
+            <div class="scn-metric"><span class="m-val">~1,500</span><span class="m-lbl">Inbound adds / yr (ramps ~150/mo post-Q4)</span></div>
+            <div class="scn-metric"><span class="m-val">~175</span><span class="m-lbl">Outbound adds / yr (from zero)</span></div>
+            <div class="scn-metric"><span class="m-val">~1,675</span><span class="m-lbl">Total gross adds</span></div>
+          </div>
+          <div class="scn-card">
+            <div class="scn-head"><span class="scn-tier">Stretch</span></div>
+            <div class="scn-metric"><span class="m-val">~1,800</span><span class="m-lbl">Inbound adds / yr (~200/mo)</span></div>
+            <div class="scn-metric"><span class="m-val">~300</span><span class="m-lbl">Outbound adds / yr (from zero)</span></div>
+            <div class="scn-metric"><span class="m-val">~2,100</span><span class="m-lbl">Total gross adds</span></div>
+          </div>
+        </div>
+        <div class="note"><b style="font-style:normal;color:var(--accent)">Celebrate gross, commit on net</b> — the committed number is net active partners + exit ARR. Churn and fulfillment margin are the two swing variables to pressure-test together.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="8">
+      <div class="slide-inner">
+        <div class="section-label">Gross → Net · Exit ARR</div>
+        <h2 class="slide-h">Churn is the number<br>we commit on.</h2>
+        <div class="scenario-row">
+          <div class="scn-card">
+            <div class="scn-head"><span class="scn-tier">Disciplined</span><span class="scn-flag">3% / mo</span></div>
+            <div class="scn-metric"><span class="m-val">~1,985</span><span class="m-lbl">Net active partners at year-end</span></div>
+            <div class="scn-metric"><span class="m-val">~$11.8M</span><span class="m-lbl">Exit ARR (from $4.8M today)</span></div>
+            <div class="scn-metric"><span class="m-val">~1,185</span><span class="m-lbl">Net adds kept of ~1,675 gross</span></div>
+          </div>
+          <div class="scn-card feature">
+            <div class="scn-head"><span class="scn-tier">Planning midpoint</span><span class="scn-flag">5% / mo</span></div>
+            <div class="scn-metric"><span class="m-val">~1,720</span><span class="m-lbl">Net active partners at year-end</span></div>
+            <div class="scn-metric"><span class="m-val">~$10.3M</span><span class="m-lbl">Exit ARR (from $4.8M today)</span></div>
+            <div class="scn-metric"><span class="m-val">~920</span><span class="m-lbl">Net adds kept of ~1,675 gross</span></div>
+          </div>
+          <div class="scn-card">
+            <div class="scn-head"><span class="scn-tier">Leaky</span><span class="scn-flag">7% / mo</span></div>
+            <div class="scn-metric"><span class="m-val">~1,500</span><span class="m-lbl">Net active partners at year-end</span></div>
+            <div class="scn-metric"><span class="m-val">~$8.9M</span><span class="m-lbl">Exit ARR (from $4.8M today)</span></div>
+            <div class="scn-metric"><span class="m-val">~700</span><span class="m-lbl">Net adds kept of ~1,675 gross</span></div>
+          </div>
+        </div>
+        <div class="note"><b style="font-style:normal;color:var(--accent)">$4.8M + (~1,675 × $5,964) − churn = exit ARR.</b> Churn swings the year by ~$3M — which is exactly why I run the floor on activation and retention, not just closes. <i>Illustrative bands; we replace them with your real churn the moment I have it.</i></div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="8">
+      <div class="slide-inner">
+        <div class="section-label">To Lock the Number · A Working Session, Not a Pitch</div>
+        <h2 class="slide-h">What I need from you.</h2>
+        <div class="side-by-side">
+          <div class="side-col ac">
+            <div class="col-h">The two that move everything</div>
+            <ul class="col-list">
+              <li>Real churn — monthly, ideally by ICP / sub-profile</li>
+              <li>Fulfillment margin per active patient</li>
+            </ul>
+          </div>
+          <div class="side-col">
+            <div class="col-h">To tune the build</div>
+            <ul class="col-list">
+              <li>True ARR today — % of 800+ actually paying $497</li>
+              <li>Funnel rates — lead → consult → close → activation, speed-to-lead, show-rate</li>
+              <li>Q4 marketing plan — timing, channels, the exact 3× target</li>
+              <li>The 15k database — recency, source, ICP mix</li>
+              <li>Existing comp + inbound headcount, tenure, ramp time</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note">Give me these and the bands become a committed plan. That's the working session — and it's how I'd run the seat from day one: model first, commit second.</div>
+      </div>
+    </section>
+
+    <!-- ============ CH 9 · THE FLYWHEEL ============ -->
     <section class="slide divider-slide" data-chapter="9">
       <div class="ghost-num">09</div>
       <div class="slide-inner divider-inner">
-        <div class="divider-title">Prioritized Execution</div>
+        <div class="divider-title">The Flywheel</div>
         <div class="divider-rule"></div>
-        <div class="divider-sub">Execution-first. Sequenced so you never scale an un-measured close.</div>
+        <div class="divider-sub">Overjoyed, retained partners are the engine — not the exhaust.</div>
       </div>
     </section>
 
     <section class="slide" data-chapter="9">
       <div class="slide-inner">
-        <div class="section-label">The Sequence</div>
-        <h2 class="slide-h">Six moves.</h2>
-        <ul class="minimal-list">
-          <li><span class="li-num">01</span><span><b>Instrument + convert inbound</b> (0–30d) — funnel baseline, SLA, demo→close playbook</span></li>
-          <li><span class="li-num">02</span><span><b>Hire Wave 1, codify the close</b> (0–60d) — lift close rate before adding complexity</span></li>
-          <li><span class="li-num">03</span><span><b>Stand up outbound</b> (30–90d) — ICP-1 + orphaned-partner trigger</span></li>
-          <li><span class="li-num">04</span><span><b>Scale team, go multi-channel</b> (60–120d) — add ICP-2/3, IG into cadence</span></li>
-          <li><span class="li-num">05</span><span><b>Channel + multi-location leverage</b> (Q2–Q3) — franchise &amp; referral partners</span></li>
-          <li><span class="li-num">06</span><span><b>Expansion within base</b> (ongoing) — peptide cross-sell, regulatory-resilient ARR</span></li>
-        </ul>
+        <div class="section-label">Retention Starts at the Sale</div>
+        <h2 class="slide-h">Activation is the<br>leading indicator.</h2>
+        <div class="lead">Orders by day 10–12 is the moment a partner becomes retained. The consultative sale pays off twice — the understanding the closer built (the operator's model, goals, and fears) becomes the success pod's blueprint for an overjoyed activation.</div>
+        <div class="note">Clean handoff with a rich context transfer — the context artifact is part of the definition of a closed deal, because it's what carries trust from the sale into activation.</div>
       </div>
     </section>
 
-    <!-- ============ CH 10 · CLOSE ============ -->
+    <section class="slide" data-chapter="9">
+      <div class="slide-inner">
+        <div class="section-label">The Loop Closes on Acquisition</div>
+        <h2 class="slide-h">Expand. Refer. Prove.</h2>
+        <div class="three-col">
+          <div class="comp-card">
+            <span class="cc-tag">Expand</span>
+            <div class="cc-h">Land on GLP-1, grow the line</div>
+            <div class="cc-b">Peptides, HRT / TRT, and multi-location — retention and revenue at once.</div>
+          </div>
+          <div class="comp-card">
+            <span class="cc-tag">Refer</span>
+            <div class="cc-h">The peer-trigger, productized</div>
+            <div class="cc-b">Make it effortless for overjoyed partners to refer — advocacy becomes outbound fuel.</div>
+          </div>
+          <div class="comp-card feature">
+            <span class="cc-tag">Prove</span>
+            <div class="cc-h">Wins feed the engine</div>
+            <div class="cc-b">Continuous proof powers inbound creative, outbound references, and the ~1,400 community moat.</div>
+            <div class="cc-foot">Lower CAC</div>
+          </div>
+        </div>
+        <div class="note">Retention data ranks the ICPs and tunes routing — the engine learns who stays overjoyed and goes and finds more of them.</div>
+      </div>
+    </section>
+
+    <!-- ============ CH 10 · EXECUTION & CLOSE ============ -->
+    <section class="slide divider-slide" data-chapter="10">
+      <div class="ghost-num">10</div>
+      <div class="slide-inner divider-inner">
+        <div class="divider-title">Execution</div>
+        <div class="divider-rule"></div>
+        <div class="divider-sub">A build that funds itself — each phase pays for the next.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="10">
+      <div class="slide-inner">
+        <div class="section-label">The Sequenced Build</div>
+        <h2 class="slide-h">Four phases.</h2>
+        <div class="ramp">
+          <div class="ramp-col">
+            <div class="ramp-bar" style="min-height:74px;"><span class="rb-total">1</span><span class="rb-split">EARN</span></div>
+            <div class="ramp-meta">
+              <span class="rm-month">START</span>
+              <div class="rm-phase">Earn the floor</div>
+              <div class="rm-hires">Diagnose · finish foundation · begin 15k reactivation</div>
+              <div class="rm-gate"><b>MOVE WHEN</b> leaks named, foundation gaps closed, first 15k revenue in</div>
+            </div>
+          </div>
+          <div class="ramp-col">
+            <div class="ramp-bar" style="min-height:142px;"><span class="rb-total">2</span><span class="rb-split">ABSORB</span></div>
+            <div class="ramp-meta">
+              <span class="rm-month">Q4</span>
+              <div class="rm-phase">Absorb the surge</div>
+              <div class="rm-hires">Promote manager · tier routing · launch affiliate</div>
+              <div class="rm-gate"><b>MOVE WHEN</b> close rate holds under 3× flow, manager owns the floor</div>
+            </div>
+          </div>
+          <div class="ramp-col">
+            <div class="ramp-bar" style="min-height:196px;"><span class="rb-total">3</span><span class="rb-split">BUILD</span></div>
+            <div class="ramp-meta">
+              <span class="rm-month">NEXT</span>
+              <div class="rm-phase">Build cold</div>
+              <div class="rm-hires">Stand up the med-spa SDR motion, certified first</div>
+              <div class="rm-gate"><b>MOVE WHEN</b> SDRs hit qualified-show-progress at target activation</div>
+            </div>
+          </div>
+          <div class="ramp-col">
+            <div class="ramp-bar" style="min-height:236px;"><span class="rb-total">4</span><span class="rb-split">EXPAND</span></div>
+            <div class="ramp-meta">
+              <span class="rm-month">SCALE</span>
+              <div class="rm-phase">Leverage &amp; expand</div>
+              <div class="rm-hires">Enterprise motion + a dedicated expansion motion</div>
+              <div class="rm-gate"><b>THE PAYOFF</b> each channel self-funding · net retention compounding</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="10">
+      <div class="slide-inner">
+        <div class="section-label">Risks · Named &amp; Answered</div>
+        <h2 class="slide-h">Trust under load.</h2>
+        <div class="risk-grid">
+          <div class="risk-card crit">
+            <div class="risk-head"><div class="risk-name">Trust erosion under the Q4 surge</div><span class="risk-sev">Critical</span></div>
+            <div class="risk-mit">Tier routing · <b>coaching density</b> via the manager · ramp certification · disqualify honestly · retention on the scoreboard.</div>
+          </div>
+          <div class="risk-card crit">
+            <div class="risk-head"><div class="risk-name">Activation failure / churn</div><span class="risk-sev">Critical</span></div>
+            <div class="risk-mit">Rich <b>context handoff</b> · success-pod activation by day 10–12 · early-warning health signals · comp activation gate.</div>
+          </div>
+          <div class="risk-card high">
+            <div class="risk-head"><div class="risk-name">Outbound → spray-and-pray</div><span class="risk-sev">High</span></div>
+            <div class="risk-mit">Warm-first · research-led · <b>SDR comp on qualified-shows-progress</b>, never raw bookings.</div>
+          </div>
+          <div class="risk-card high">
+            <div class="risk-head"><div class="risk-name">Greenfield ramp slippage</div><span class="risk-sev">High</span></div>
+            <div class="risk-mit">Warm 15k first for fast revenue · proven external builders · <b>ride inbound</b> while outbound stands up.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-chapter="10">
+      <div class="slide-inner">
+        <div class="section-label">Why Me, For This Seat</div>
+        <h2 class="slide-h">Built this before.</h2>
+        <div class="stat-row">
+          <div class="stat-card"><div class="sn">$300K</div><div class="sl">MRR built ground-up as VP of Sales (healthcare) — selling to owner-operator clinics, the exact buyer</div></div>
+          <div class="stat-card"><div class="sn">390%</div><div class="sl">Of quota as a front-line manager while coaching reps to a 20% outbound lift — vision and weeds</div></div>
+          <div class="stat-card"><div class="sn">$5M+</div><div class="sl">From-zero pipelines, cold territory, zero inherited accounts (Citrix · HPE · Nutanix)</div></div>
+        </div>
+        <div class="note">And the reason I build this way is the thesis on page one — I sell through understanding, not volume. Trained in tactical empathy (Chris Voss), a decade of deals where trust was the sale. In Dallas, ready for the floor.</div>
+      </div>
+    </section>
+
+    <!-- CLOSE -->
     <section class="slide close-slide" data-chapter="10">
       <div class="slide-inner">
-        <div class="close-statement">Let's make the<br>difference <em>together.</em></div>
+        <div class="close-statement">Let's build an engine<br>that <em>scales trust.</em></div>
         <div class="close-rule"></div>
         <div class="close-contact">
           <div class="cc-name">Chris Debayle</div>
-          <div class="cc-role">Sales Director · Nationwide</div>
+          <div class="cc-role">VP of Sales · Dallas</div>
           <div class="cc-lines">
             <a id="closeEmail" href="#" class="cc-link">email</a>
             <span class="cc-dot">·</span>
@@ -1559,16 +1741,16 @@
      ============================================================ */
   const chapters = [
     "Title",
-    "The Situation",
-    "The Strategic Unlock",
-    "The Thesis",
-    "Market & PMF",
-    "Three ICP Profiles",
-    "Revenue Model",
-    "GTM Build",
-    "Risks & Mitigations",
-    "Prioritized Execution",
-    "The Close"
+    "The Reframe",
+    "The Market",
+    "The Seat",
+    "The Buyer",
+    "Inbound Engine",
+    "Outbound Engine",
+    "The Org",
+    "The Number",
+    "The Flywheel",
+    "Execution & Close"
   ];
 
   const slides = Array.from(document.querySelectorAll('.slide'));
